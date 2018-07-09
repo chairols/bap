@@ -23,6 +23,26 @@ class Menu_model extends CI_Model {
         
         return $query->result_array();
     }
+    
+    /*
+     *  libraries/r_session
+     */
+    public function obtener_menu_por_padre_para_menu($idpadre, $idperfil) {
+        $query = $this->db->query("SELECT m.*, pm.idperfil 
+                                    FROM
+                                        (menu m
+                                    INNER JOIN
+                                        perfiles_menu pm
+                                    ON
+                                        m.idmenu = pm.idmenu AND
+                                        pm.idperfil = '$idperfil')
+                                    WHERE
+                                        m.padre = '$idpadre' AND
+                                        m.visible = '1'
+                                    ORDER BY
+                                        m.orden, m.menu" );
+        return $query->result_array();
+    }
 
 }
 
