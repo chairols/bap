@@ -10,6 +10,9 @@ class Usuarios extends CI_Controller {
             'form_validation',
             'session'
         ));
+        $this->load->model(array(
+            'usuarios_model'
+        ));
     }
 
     public function login() {
