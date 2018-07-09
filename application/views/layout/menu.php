@@ -218,6 +218,7 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="/assets/AdminLTE-2.4.3/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <span class="hidden-xs"><?= $session['nombre'] ?> <?= $session['apellido'] ?></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -251,7 +252,7 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu" data-widget="treeview">
+                <ul class="sidebar-menu" data-widget="tree">
                     <?php foreach ($menu['menu'] as $m1) { ?>
                         <li class="<?= (count($m1['submenu']) > 0) ? "treeview " : "" ?><?= ($m1['active'] == 1) ? "active" : "" ?>">
                             <a href="<?= $m1['href'] ?>">
@@ -267,7 +268,7 @@
                             <?php if (count($m1['submenu']) > 0) { ?>
                                 <ul class="treeview-menu">
                                     <?php foreach ($m1['submenu'] as $m2) { ?>
-                                        <li class="<?= ($m2['active'] == 1) ? "active" : "" ?>">
+                                        <li class="<?= (count($m2['submenu']) > 0) ? "treeview " : "" ?><?= ($m2['active'] == 1) ? "active" : "" ?>">
                                             <a href="<?= $m2['href'] ?>">
                                                 <i class="<?= $m2['icono'] ?>"></i>
                                                 <span><?= $m2['titulo'] ?></span>
