@@ -13,7 +13,7 @@ class Menu extends CI_Controller {
         ));
         
         $session = $this->session->all_userdata();
-        $this->r_session->check($session);
+        //$this->r_session->check($session);
     }
 
     function listar($pagina = 0) {
@@ -93,6 +93,14 @@ class Menu extends CI_Controller {
         $this->load->view('layout/menu');
         $this->load->view('menu/agregar');
         $this->load->view('layout/footer');
+    }
+    
+    public function agregar_ajax() {
+        $datos = array(
+            'status' => 'ok',
+            'data' => $this->input->post()
+        );
+        echo json_encode($datos);
     }
 
 }
