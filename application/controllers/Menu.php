@@ -74,6 +74,26 @@ class Menu extends CI_Controller {
         $this->load->view('menu/listar');
         $this->load->view('layout/footer');
     }
+    
+    public function agregar() {
+        $data['title'] = 'Agregar Menú';
+        $data['session'] = $this->session->all_userdata();
+        $data['menu'] = $this->r_session->get_menu();
+        $data['javascript'] = array(
+            '/assets/modulos/menu/js/agregar.js'
+        );
+
+        $data['padres'] = $this->menu_model->gets_padres_ordenados(0);
+        foreach ($data['padres'] as $key => $value) {
+            $data['padres'][$key]['hijos'] = $this->menu_model->gets_padres_ordenados($value['idmenu']);
+        }
+
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('menu/agregar');
+        $this->load->view('layout/footer');
+    }
 
 }
 
