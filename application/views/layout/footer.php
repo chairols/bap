@@ -226,11 +226,22 @@
 <script src="/assets/AdminLTE-2.4.3/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/assets/AdminLTE-2.4.3/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- Alertify JS -->
+<script src="/assets/vendors/alertifyjs/alertify.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/assets/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/assets/AdminLTE-2.4.3/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/assets/AdminLTE-2.4.3/dist/js/demo.js"></script>
+<?php
+if (isset($javascript) && count($javascript) > 0) { ?>
+<!-- Carga de Scripts de la vista -->
+<?php    foreach ($javascript as $j) { ?>
+<script type="text/javascript" src="<?=$j?>"></script>
+<?php
+    }
+}
+?>
 </body>
 </html>

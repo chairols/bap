@@ -17,10 +17,9 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="/assets/AdminLTE-2.4.3/dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="/assets/AdminLTE-2.4.3/bower_components/morris.js/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="/assets/AdminLTE-2.4.3/bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Alertify JS -->
+  <link rel="stylesheet" href="/assets/vendors/alertifyjs/css/alertify.min.css">
+  <link rel="stylesheet" href="/assets/vendors/alertifyjs/css/themes/bootstrap.min.css">
   <!-- Date Picker -->
   <link rel="stylesheet" href="/assets/AdminLTE-2.4.3/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Daterange picker -->
