@@ -146,6 +146,13 @@ class Menu_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    
+        /*
+     *  Perfiles/actualizar_orden
+     */
+    public function update_menu($data, $where) {
+        $this->db->update('menu', $data, $where);
+    }
 }
 
 ?>

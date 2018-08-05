@@ -75,9 +75,6 @@ class Perfiles extends CI_Controller {
         $data['title'] = 'Modificar Perfil';
         $data['session'] = $this->session->all_userdata();
         $data['menu'] = $this->r_session->get_menu();
-        $data['css'] = array(
-            '/assets/modulos/perfiles/css/modificar.css'
-        );
         $data['javascript'] = array(
             '/assets/vendors/Nestable-master/jquery.nestable.js',
             '/assets/modulos/perfiles/js/modificar.js'
@@ -136,6 +133,62 @@ class Perfiles extends CI_Controller {
                 echo json_encode($json);
             }
         }
+    }
+    
+        public function actualizar_orden() {
+        $this->form_validation->set_rules('orden', 'Orden', 'required');
+        
+        if($this->form_validation->run() == FALSE) {
+            $json = array(
+                'status' => 'error',
+                'data' => validation_errors()
+            );
+            echo json_encode($json);
+        } else {
+            $resultado = json_decode($this->input->post('orden'));
+            $contador1 = 1;
+            foreach ($resultado as $r1) {
+                $data = array(
+                    'orden' => $contador1
+                );
+                $where = array(
+                    'idmenu' => $r1->id
+                );
+                $this->menu_model->update_menu($data, $where);
+                if (isset($r1->children)) {
+                    $contador2 = 1;
+                    foreach ($r1->children as $r2) {
+                        $data = array(
+                            'orden' => $contador2
+                        );
+                        $where = array(
+                            'idmenu' => $r2->id
+                        );
+                        $this->menu_model->update_menu($data, $where);
+                        if (isset($r2->children)) {
+                            $contador3 = 1;
+                            foreach ($r2->children as $r3) {
+                                $data = array(
+                                    'orden' => $contador3
+                                );
+                                $where = array(
+                                    'idmenu' => $r3->id
+                                );
+                                $this->menu_model->update_menu($data, $where);
+                                $contador3++;
+                            }
+                        }
+                        $contador2++;
+                    }
+                }
+                $contador1++;
+            }
+            $json = array(
+                'status' => 'ok'
+            );
+            echo json_encode($json);
+        }
+        
     }
 
 }

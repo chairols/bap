@@ -75,10 +75,9 @@ function actualizar_orden() {
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                notifyError('<strong>ERROR</strong>' + resultado['data'], 5000);
-                
+                alertify.error(resultado['data']);
             } else if (resultado['status'] == 'ok') {
-                notifySuccess("OK", 1000);
+                alertify.success("Se actualizó correctamente.");
                 
             }
         }
