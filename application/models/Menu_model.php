@@ -97,6 +97,14 @@ class Menu_model extends CI_Model {
                                         orden");
         return $query->result_array();              
     }
+    
+    /*
+     *  Menu/agregar
+     */
+    public function set($datos) {
+        $this->db->insert('menu', $datos);
+        return $this->db->insert_id();
+    }
 }
 
 ?>
