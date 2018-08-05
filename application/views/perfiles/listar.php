@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box box-primary">
     <div class="box-header">
         <form method="POST" class="input-group input-group-sm col-md-5">
             <input class="form-control pull-left" name="perfil" placeholder="Buscar ..." type="text">
