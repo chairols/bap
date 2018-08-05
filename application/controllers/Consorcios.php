@@ -20,7 +20,7 @@ class Consorcios extends CI_Controller {
         $data['session'] = $this->session->all_userdata();
         $data['menu'] = $this->r_session->get_menu();
 
-        $data['random'] = $this->generateRandomString(30);
+        $data['random'] = "CNS-".$this->generateRandomString(6);
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
@@ -29,7 +29,7 @@ class Consorcios extends CI_Controller {
     }
 
     private function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
