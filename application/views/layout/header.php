@@ -36,4 +36,13 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="/assets/AdminLTE-2.4.3/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <?php
+if (isset($css) && count($css) > 0) { ?>
+<!-- Carga de Scripts de la vista -->
+<?php    foreach ($css as $c) { ?>
+<script rel="stylesheet" href="<?=$c?>"></script>
+<?php
+    }
+}
+?>
 </head>
