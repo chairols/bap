@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Consorcios extends CI_Controller {
+class Comunidades extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -16,11 +16,11 @@ class Consorcios extends CI_Controller {
     }
 
     public function agregar() {
-        $data['title'] = 'Agregar Consorcio';
+        $data['title'] = 'Agregar Comunidad';
         $data['session'] = $this->session->all_userdata();
         $data['menu'] = $this->r_session->get_menu();
 
-        $data['random'] = "CNS-".$this->generateRandomString(6);
+        $data['random'] = $this->generateRandomString(6);
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
