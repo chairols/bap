@@ -221,7 +221,12 @@
                         <?php foreach ($menu['menu'] as $m1) { ?>
                             <li class="<?= ($m1['active'] == '1') ? "active open" : "" ?>">
                                 <a href="<?= $m1['href'] ?>" <?= (count($m1['submenu'])) ? "class='menu-toggle'" : "" ?>>
-                                    <i class="<?= $m1['icono'] ?>"></i><span><?= $m1['titulo'] ?></span>
+                                    <div class="demo-google-material-icon">
+                                        <i class="material-icons">
+                                            <?= $m1['icono'] ?>
+                                        </i>
+                                        <span><?= $m1['titulo'] ?></span>
+                                    </div>
                                 </a>
                                 <?php if (count($m1['submenu'])) { ?>
                                     <ul class="ml-menu">
