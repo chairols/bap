@@ -24,7 +24,7 @@ class Comunidades extends CI_Controller {
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
-        $this->load->view('consorcios/agregar');
+        $this->load->view('comunidades/agregar');
         $this->load->view('layout/footer');
     }
 
