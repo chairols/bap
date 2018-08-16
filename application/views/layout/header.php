@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="/assets/oreoadmin-140/html-light/assets/plugins/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/oreoadmin-140/html-light/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
         <link rel="stylesheet" href="/assets/oreoadmin-140/html-light/assets/plugins/morrisjs/morris.min.css" />
+        <!-- Bootstrap Select Css -->
+        <link rel="stylesheet" href="/assets/oreoadmin-140/html-light/assets/plugins/bootstrap-select/css/bootstrap-select.css" />
         <!-- Custom Css -->
         <link rel="stylesheet" href="/assets/oreoadmin-140/html-light/assets/css/main.css">
         <link rel="stylesheet" href="/assets/oreoadmin-140/html-light/assets/css/color_skins.css">
