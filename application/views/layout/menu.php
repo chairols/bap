@@ -1,350 +1,812 @@
-<body class="hold-transition skin-blue sidebar-mini fixed">
-    <div class="wrapper">
+<body class="theme-purple">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="/assets/oreoadmin-140/html-light/assets/images/logo.svg" width="48" height="48" alt="Oreo"></div>
+            <p>Por favor espere...</p>        
+        </div>
+    </div>
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
 
-        <header class="main-header">
-            <!-- Logo -->
-            <a href="/" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>A</b>LT</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin</b>LTE</span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
+    <!-- Top Bar -->
+    <nav class="navbar p-l-5 p-r-5">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <div class="navbar-header">
+                    <a href="javascript:void(0);" class="bars"></a>
+                    <a class="navbar-brand" href="/"><img src="/assets/oreoadmin-140/html-light/assets/images/logo.svg" width="30" alt="Oreo"><span class="m-l-10">Oreo</span></a>
+                </div>
+            </li>
+            <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
+            <li class="hidden-md-down"><a href="events.html" title="Events"><i class="zmdi zmdi-calendar"></i></a></li>
+            <li class="hidden-md-down"><a href="mail-inbox.html" title="Inbox"><i class="zmdi zmdi-email"></i></a></li>
+            <li><a href="contact.html" title="Contact List"><i class="zmdi zmdi-account-box-phone"></i></a></li>
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
                 </a>
-
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-success">4</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li><!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="/assets/AdminLTE-2.4.3/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <!-- end message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="/assets/AdminLTE-2.4.3/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    AdminLTE Design Team
-                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="/assets/AdminLTE-2.4.3/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Developers
-                                                    <small><i class="fa fa-clock-o"></i> Today</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="/assets/AdminLTE-2.4.3/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Sales Department
-                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="/assets/AdminLTE-2.4.3/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <h4>
-                                                    Reviewers
-                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
-                        </li>
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                                                page and may cause design problems
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-red"></i> 5 new members joined
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-user text-red"></i> You changed your username
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag-o"></i>
-                                <span class="label label-danger">9</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 9 tasks</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Design some buttons
-                                                    <small class="pull-right">20%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">20% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Create a nice theme
-                                                    <small class="pull-right">40%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
-                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">40% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Some task I need to do
-                                                    <small class="pull-right">60%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
-                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Make beautiful transitions
-                                                    <small class="pull-right">80%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
-                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">80% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <!-- end task item -->
-                                    </ul>
-                                </li>
-                                <li class="footer">
-                                    <a href="#">View all tasks</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="/assets/AdminLTE-2.4.3/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?= $session['nombre'] ?> <?= $session['apellido'] ?></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header">
-                                    <img src="/assets/AdminLTE-2.4.3/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                    <p>
-                                        <?= $session['nombre'] ?> <?= $session['apellido'] ?>
-                                        <small>Member since Nov. 2012</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <ul class="dropdown-menu pullDown">
+                    <li class="body">
+                        <ul class="menu list-unstyled">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Sophia <span class="time">30min ago</span></span>
+                                            <span class="message">There are many variations of passages</span>                                        
+                                        </div>
                                     </div>
-                                    <div class="pull-right">
-                                        <a href="/usuarios/logout/" class="btn btn-default btn-flat">Sign out</a>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Sophia <span class="time">31min ago</span></span>
+                                            <span class="message">There are many variations of passages of Lorem Ipsum</span>                                        
+                                        </div>
                                     </div>
-                                </li>
-                            </ul>
-                        </li>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="assets/images/xs/avatar4.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Isabella <span class="time">35min ago</span></span>
+                                            <span class="message">There are many variations of passages</span>                                        
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Alexander <span class="time">35min ago</span></span>
+                                            <span class="message">Contrary to popular belief, Lorem Ipsum random</span>                                        
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object" src="assets/images/xs/avatar6.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Grayson <span class="time">1hr ago</span></span>
+                                            <span class="message">There are many variations of passages</span>                                        
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                        
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">View All</a> </li>
+                </ul>
+            </li>
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
+                    <div class="notify">
+                        <span class="heartbit"></span>
+                        <span class="point"></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu pullDown">
+                    <li class="header">Project</li>
+                    <li class="body">
+                        <ul class="menu tasks list-unstyled">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="progress-container progress-primary">
+                                        <span class="progress-badge">eCommerce Website</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
+                                                <span class="progress-value">86%</span>
+                                            </div>
+                                        </div>                        
+                                        <ul class="list-unstyled team-info">
+                                            <li class="m-r-15"><small class="text-muted">Team</small></li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar3.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar4.jpg" alt="Avatar">
+                                            </li>                            
+                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="progress-container progress-info">
+                                        <span class="progress-badge">iOS Game Dev</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                                <span class="progress-value">45%</span>
+                                            </div>
+                                        </div>
+                                        <ul class="list-unstyled team-info">
+                                            <li class="m-r-15"><small class="text-muted">Team</small></li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar10.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar9.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar8.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar7.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar6.jpg" alt="Avatar">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <div class="progress-container progress-warning">
+                                        <span class="progress-badge">Home Development</span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100" style="width: 29%;">
+                                                <span class="progress-value">29%</span>
+                                            </div>
+                                        </div>
+                                        <ul class="list-unstyled team-info">
+                                            <li class="m-r-15"><small class="text-muted">Team</small></li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar5.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
+                                            </li>
+                                            <li>
+                                                <img src="assets/images/xs/avatar7.jpg" alt="Avatar">
+                                            </li>                            
+                                        </ul>
+                                    </div>
+                                </a>
+                            </li>                    
+                        </ul>
+                    </li>
+                    <li class="footer"><a href="javascript:void(0);">View All</a></li>
+                </ul>
+            </li>
+            <li class="hidden-sm-down">
+                <div class="input-group">                
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-addon">
+                        <i class="zmdi zmdi-search"></i>
+                    </span>
+                </div>
+            </li>        
+            <li class="float-right">
+                <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+                <a href="/usuarios/logout/" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+                <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+            </li>
+        </ul>
+    </nav>
 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Menú</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>Perfil</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane stretchRight active" id="dashboard">
+                <div class="menu">
+                    <ul class="list">
+                        <li>
+                            <div class="user-info">
+                                <div class="image"><a href="#"><img src="/assets/oreoadmin-140/html-light/assets/images/profile_av.jpg" alt="User"></a></div>
+                                <div class="detail">
+                                    <h4><?=$session['nombre']?> <?=$session['apellido']?></h4>                      
+                                </div>
+                                <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
+                                <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
+                                <a title="instagram" href="#"><i class="zmdi zmdi-instagram"></i></a>                            
+                            </div>
+                        </li>
+                        <?php foreach ($menu['menu'] as $m1) { ?>
+                            <li class="<?= ($m1['active'] == '1') ? "active open" : "" ?>">
+                                <a href="<?= $m1['href'] ?>" <?= (count($m1['submenu'])) ? "class='menu-toggle'" : "" ?>>
+                                    <i class="<?= $m1['icono'] ?>"></i><span><?= $m1['titulo'] ?></span>
+                                </a>
+                                <?php if (count($m1['submenu'])) { ?>
+                                    <ul class="ml-menu">
+                                        <?php foreach ($m1['submenu'] as $m2) { ?>
+                                            <li<?= ($m2['active'] == '1') ? " class='active open'" : "" ?>>
+                                                <a href="<?= $m2['href'] ?>" <?= (count($m2['submenu'])) ? "class='menu-toggle'" : "" ?>>
+                                                    <?= $m2['titulo'] ?>
+                                                </a>
+                                                <?php if (count($m2['submenu'])) { ?>
+                                                    <ul class="ml-menu">
+                                                        <?php foreach ($m2['submenu'] as $m3) { ?>
+                                                            <li<?= ($m3['active'] == '1') ? " class='active'" : "" ?>>
+                                                                <a href="<?= $m3['href'] ?>">
+                                                                    <?= $m3['titulo'] ?>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                <?php } ?>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                <?php } ?>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    <?php foreach ($menu['menu'] as $m1) { ?>
-                        <li class="<?= (count($m1['submenu']) > 0) ? "treeview " : "" ?><?= ($m1['active'] == 1) ? "active" : "" ?>">
-                            <a href="<?= $m1['href'] ?>">
-                                <i class="<?= $m1['icono'] ?>"></i>
-                                <span><?= $m1['titulo'] ?></span>
-                                <?php if (count($m1['submenu']) > 0) { ?>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                <?php } ?>
-                            </a>
-                            <!-- Comienza el segundo nivel del menú -->
-                            <?php if (count($m1['submenu']) > 0) { ?>
-                                <ul class="treeview-menu">
-                                    <?php foreach ($m1['submenu'] as $m2) { ?>
-                                        <li class="<?= (count($m2['submenu']) > 0) ? "treeview " : "" ?><?= ($m2['active'] == 1) ? "active" : "" ?>">
-                                            <a href="<?= $m2['href'] ?>">
-                                                <i class="<?= $m2['icono'] ?>"></i>
-                                                <span><?= $m2['titulo'] ?></span>
-                                                <?php if (count($m2['submenu']) > 0) { ?>
-                                                    <span class="pull-right-container">
-                                                        <i class="fa fa-angle-left pull-right"></i>
-                                                    </span>
-                                                <?php } ?>
-                                            </a>
-                                            <!-- Comienza el tercer nivel del menú -->
-                                            <?php if (count($m2['submenu']) > 0) { ?>
-                                                <ul class="treeview-menu">
-                                                    <?php foreach ($m2['submenu'] as $m3) { ?>
-                                                        <li class="<?= ($m3['active'] == 1) ? "active" : "" ?>">
-                                                            <a href="<?= $m3['href'] ?>">
-                                                                <i class="<?= $m3['icono'] ?>"></i>
-                                                                <span><?= $m3['titulo'] ?></span>
-                                                            </a>
-                                                        </li>
-                                                    <?php } ?>
-                                                </ul>
-                                            <?php } ?>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
-                            <?php } ?>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <?php
-            $breadcrumbs = array();
-            foreach ($menu['menu'] as $m1) {
-                if ($m1['active'] == 1) {
-                    $breadcrumbs[0]['icono'] = $m1['icono'];
-                    $breadcrumbs[0]['titulo'] = $m1['titulo'];
-                }
-                if (count($m1['submenu']) > 0) {
-                    foreach ($m1['submenu'] as $m2) {
-                        if ($m2['active'] == 1) {
-                            $breadcrumbs[1]['icono'] = $m2['icono'];
-                            $breadcrumbs[1]['titulo'] = $m2['titulo'];
-                        }
-                        if (count($m2['submenu']) > 0) {
-                            foreach ($m2['submenu'] as $m3) {
-                                if ($m3['active'] == 1) {
-                                    $breadcrumbs[2]['icono'] = $m3['icono'];
-                                    $breadcrumbs[2]['titulo'] = $m3['titulo'];
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            ?>
-            <section class="content-header" style="background-color:#DDD;padding-bottom:20px;border-bottom:2px #AAA solid;">
-                <h1>
-                    <?= $title ?>
-                </h1>
-                <ol class="breadcrumb">
-                    <?php foreach ($breadcrumbs as $b) { ?>
+            </div>
+            <div class="tab-pane stretchLeft" id="user">
+                <div class="menu">
+                    <ul class="list">
                         <li>
-                            <i class="<?= $b['icono'] ?>"></i>
-                            <?= $b['titulo'] ?>
+                            <div class="user-info m-b-20 p-b-15">
+                                <div class="image"><a href="#"><img src="/assets/oreoadmin-140/html-light/assets/images/profile_av.jpg" alt="User"></a></div>
+                                <div class="detail">
+                                    <h4><?=$session['nombre']?> <?=$session['apellido']?></h4>                       
+                                </div>
+                                <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
+                                <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
+                                <a title="instagram" href="#"><i class="zmdi zmdi-instagram"></i></a>
+                                <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="m-b-5">852</h5>
+                                        <small>Following</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="m-b-5">13k</h5>
+                                        <small>Followers</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="m-b-5">234</h5>
+                                        <small>Post</small>
+                                    </div>                            
+                                </div>
+                            </div>
                         </li>
-                    <?php } ?>
-                </ol>
-            </section>
-            <br>
+                        <li>
+                            <small class="text-muted">Email address: </small>
+                            <p>michael@gmail.com</p>
+                            <hr>
+                            <small class="text-muted">Phone: </small>
+                            <p>+ 202-555-0191</p>
+                            <hr>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div>Photoshop</div>
+                                    <div class="progress m-b-20">
+                                        <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% Complete</span> </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>Wordpress</div>
+                                    <div class="progress m-b-20">
+                                        <div class="progress-bar l-green " role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span class="sr-only">87% Complete</span> </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>HTML 5</div>
+                                    <div class="progress m-b-20">
+                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%"> <span class="sr-only">32% Complete</span> </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>Angular</div>
+                                    <div class="progress m-b-20">
+                                        <div class="progress-bar l-blush" role="progressbar" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100" style="width: 43%"> <span class="sr-only">56% Complete</span> </div>
+                                    </div>
+                                </li>
+                            </ul>                        
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+    </aside>
 
+    <!-- Right Sidebar -->
+    <aside id="rightsidebar" class="right-sidebar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity">Activity</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane slideRight active" id="setting">
+                <div class="slim_scroll">
+                    <div class="card">
+                        <h6>General Settings</h6>
+                        <ul class="setting-list list-unstyled">
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox1" type="checkbox">
+                                    <label for="checkbox1">Report Panel Usage</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox2" type="checkbox" checked="">
+                                    <label for="checkbox2">Email Redirect</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox3" type="checkbox" checked="">
+                                    <label for="checkbox3">Notifications</label>
+                                </div>                        
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox4" type="checkbox" checked="">
+                                    <label for="checkbox4">Auto Updates</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>                
+                    <div class="card">
+                        <h6>Skins</h6>
+                        <ul class="choose-skin list-unstyled">
+                            <li data-theme="purple" class="active">
+                                <div class="purple"></div>
+                            </li>                   
+                            <li data-theme="blue">
+                                <div class="blue"></div>
+                            </li>
+                            <li data-theme="cyan">
+                                <div class="cyan"></div>                    
+                            </li>
+                            <li data-theme="green">
+                                <div class="green"></div>
+                            </li>
+                            <li data-theme="orange">
+                                <div class="orange"></div>
+                            </li>
+                            <li data-theme="blush">
+                                <div class="blush"></div>                    
+                            </li>
+                        </ul>                    
+                    </div>
+                    <div class="card">
+                        <h6>Account Settings</h6>
+                        <ul class="setting-list list-unstyled">
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox5" type="checkbox" checked="">
+                                    <label for="checkbox5">Offline</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <input id="checkbox6" type="checkbox" checked="">
+                                    <label for="checkbox6">Location Permission</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card theme-light-dark">
+                        <h6>Left Menu</h6>
+                        <button class="t-light btn btn-default btn-simple btn-round btn-block">Light</button>
+                        <button class="t-dark btn btn-default btn-round btn-block">Dark</button>
+                        <button class="m_img_btn btn btn-primary btn-round btn-block">Sidebar Image</button>                    
+                    </div>                
+                    <div class="card">
+                        <h6>Information Summary</h6>
+                        <div class="row m-b-20">
+                            <div class="col-7">                            
+                                <small class="displayblock">MEMORY USAGE</small>
+                                <h5 class="m-b-0 h6">512</h5>
+                            </div>
+                            <div class="col-5">
+                                <div class="sparkline" data-type="bar" data-width="97%" data-height="25px" data-bar-Width="5" data-bar-Spacing="3" data-bar-Color="#00ced1">8,7,9,5,6,4,6,8</div>
+                            </div>
+                        </div>
+                        <div class="row m-b-20">
+                            <div class="col-7">                            
+                                <small class="displayblock">CPU USAGE</small>
+                                <h5 class="m-b-0 h6">90%</h5>
+                            </div>
+                            <div class="col-5">
+                                <div class="sparkline" data-type="bar" data-width="97%" data-height="25px" data-bar-Width="5" data-bar-Spacing="3" data-bar-Color="#F15F79">6,5,8,2,6,4,6,4</div>
+                            </div>
+                        </div>
+                        <div class="row m-b-20">
+                            <div class="col-7">                            
+                                <small class="displayblock">DAILY TRAFFIC</small>
+                                <h5 class="m-b-0 h6">25 142</h5>
+                            </div>
+                            <div class="col-5">
+                                <div class="sparkline" data-type="bar" data-width="97%" data-height="25px" data-bar-Width="5" data-bar-Spacing="3" data-bar-Color="#78b83e">7,5,8,7,4,2,6,5</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7">                            
+                                <small class="displayblock">DISK USAGE</small>
+                                <h5 class="m-b-0 h6">60.10%</h5>
+                            </div>
+                            <div class="col-5">
+                                <div class="sparkline" data-type="bar" data-width="97%" data-height="25px" data-bar-Width="5" data-bar-Spacing="3" data-bar-Color="#457fca">7,5,2,5,6,7,6,4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>       
+            <div class="tab-pane right_chat stretchLeft" id="chat">
+                <div class="slim_scroll">
+                    <div class="card">
+                        <div class="search">                        
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-addon">
+                                    <i class="zmdi zmdi-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h6>Recent</h6>
+                        <ul class="list-unstyled">
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar4.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Sophia</span>
+                                            <span class="message">There are many variations of passages of Lorem Ipsum available</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Grayson</span>
+                                            <span class="message">All the Lorem Ipsum generators on the</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="offline">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Isabella</span>
+                                            <span class="message">Contrary to popular belief, Lorem Ipsum</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="me">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">John</span>
+                                            <span class="message">It is a long established fact that a reader</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>
+                            <li class="online">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="name">Alexander</span>
+                                            <span class="message">Richard McClintock, a Latin professor</span>
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>                            
+                            </li>                        
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h6>Contacts</h6>
+                        <ul class="list-unstyled">
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar10.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar6.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar7.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar8.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar9.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="online inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar5.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar4.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar3.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="online inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar2.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="offline inlineblock">
+                                <a href="javascript:void(0);">
+                                    <div class="media">
+                                        <img class="media-object " src="assets/images/xs/avatar1.jpg" alt="">
+                                        <div class="media-body">
+                                            <span class="badge badge-outline status"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane slideLeft" id="activity">
+                <div class="slim_scroll">
+                    <div class="card user_activity">
+                        <h6>Recent Activity</h6>
+                        <div class="streamline b-accent">
+                            <div class="sl-item">
+                                <img class="user rounded-circle" src="assets/images/xs/avatar4.jpg" alt="">
+                                <div class="sl-content">
+                                    <h5 class="m-b-0">Admin Birthday</h5>
+                                    <small>Jan 21 <a href="javascript:void(0);" class="text-info">Sophia</a>.</small>
+                                </div>
+                            </div>
+                            <div class="sl-item">
+                                <img class="user rounded-circle" src="assets/images/xs/avatar5.jpg" alt="">
+                                <div class="sl-content">
+                                    <h5 class="m-b-0">Add New Contact</h5>
+                                    <small>30min ago <a href="javascript:void(0);">Alexander</a>.</small>
+                                    <small><strong>P:</strong> +264-625-2323</small>
+                                    <small><strong>E:</strong> maryamamiri@gmail.com</small>
+                                </div>
+                            </div>
+                            <div class="sl-item">
+                                <img class="user rounded-circle" src="assets/images/xs/avatar6.jpg" alt="">
+                                <div class="sl-content">
+                                    <h5 class="m-b-0">Code Change</h5>
+                                    <small>Today <a href="javascript:void(0);">Grayson</a>.</small>
+                                    <small>The standard chunk of Lorem Ipsum used since the 1500s is reproduced</small>
+                                </div>
+                            </div>
+                            <div class="sl-item">
+                                <img class="user rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
+                                <div class="sl-content">
+                                    <h5 class="m-b-0">New Email</h5>
+                                    <small>45min ago <a href="javascript:void(0);" class="text-info">Fidel Tonn</a>.</small>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h6>Recent Attachments</h6>
+                        <ul class="list-unstyled activity">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="zmdi zmdi-collection-pdf l-blush"></i>                    
+                                    <div class="info">
+                                        <h4>info_258.pdf</h4>                    
+                                        <small>2MB</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="zmdi zmdi-collection-text l-amber"></i>                    
+                                    <div class="info">
+                                        <h4>newdoc_214.doc</h4>                    
+                                        <small>900KB</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="zmdi zmdi-image l-parpl"></i>                    
+                                    <div class="info">
+                                        <h4>MG_4145.jpg</h4>                    
+                                        <small>5.6MB</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="zmdi zmdi-image l-parpl"></i>                    
+                                    <div class="info">
+                                        <h4>MG_4100.jpg</h4>                    
+                                        <small>5MB</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="zmdi zmdi-collection-text l-amber"></i>                    
+                                    <div class="info">
+                                        <h4>Reports_end.doc</h4>                    
+                                        <small>780KB</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="zmdi zmdi-videocam l-turquoise"></i>                    
+                                    <div class="info">
+                                        <h4>movie2018.MKV</h4>                    
+                                        <small>750MB</small>
+                                    </div>
+                                </a>
+                            </li>                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
 
-            <!-- Main content -->
-            <section class="content">
+    <!-- Chat-launcher -->
+    <div class="chat-launcher"></div>
+    <div class="chat-wrapper">
+        <div class="card">
+            <div class="header">
+                <ul class="list-unstyled team-info margin-0">
+                    <li class="m-r-15"><h2>Design Team</h2></li>
+                    <li>
+                        <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
+                    </li>
+                    <li>
+                        <img src="assets/images/xs/avatar3.jpg" alt="Avatar">
+                    </li>
+                    <li>
+                        <img src="assets/images/xs/avatar4.jpg" alt="Avatar">
+                    </li>
+                    <li>
+                        <img src="assets/images/xs/avatar6.jpg" alt="Avatar">
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" title="Add Member"><i class="zmdi zmdi-plus-circle"></i></a>
+                    </li>
+                </ul>                       
+            </div>
+            <div class="body">
+                <div class="chat-widget">
+                    <ul class="chat-scroll-list clearfix">
+                        <li class="left float-left">
+                            <img src="assets/images/xs/avatar3.jpg" class="rounded-circle" alt="">
+                            <div class="chat-info">
+                                <a class="name" href="#">Alexander</a>
+                                <span class="datetime">6:12</span>                            
+                                <span class="message">Hello, John </span>
+                            </div>
+                        </li>
+                        <li class="right">
+                            <div class="chat-info"><span class="datetime">6:15</span> <span class="message">Hi, Alexander<br> How are you!</span> </div>
+                        </li>
+                        <li class="right">
+                            <div class="chat-info"><span class="datetime">6:16</span> <span class="message">There are many variations of passages of Lorem Ipsum available</span> </div>
+                        </li>
+                        <li class="left float-left"> <img src="assets/images/xs/avatar2.jpg" class="rounded-circle" alt="">
+                            <div class="chat-info"> <a class="name" href="#">Elizabeth</a> <span class="datetime">6:25</span> <span class="message">Hi, Alexander,<br> John <br> What are you doing?</span> </div>
+                        </li>
+                        <li class="left float-left"> <img src="assets/images/xs/avatar1.jpg" class="rounded-circle" alt="">
+                            <div class="chat-info"> <a class="name" href="#">Michael</a> <span class="datetime">6:28</span> <span class="message">I would love to join the team.</span> </div>
+                        </li>
+                        <li class="right">
+                            <div class="chat-info"><span class="datetime">7:02</span> <span class="message">Hello, <br>Michael</span> </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="input-group p-t-15">
+                    <input type="text" class="form-control" placeholder="Enter text here...">
+                    <span class="input-group-addon">
+                        <i class="zmdi zmdi-mail-send"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="content home">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12">
+                    <h2><?= $title ?></h2>
+                </div>            
+                <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                    <ul class="breadcrumb float-md-right">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Oreo</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+
