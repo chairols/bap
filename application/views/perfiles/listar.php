@@ -1,39 +1,49 @@
-<div class="box box-primary">
-    <div class="box-header">
-        <form method="POST" class="input-group input-group-sm col-md-5">
-            <input class="form-control pull-left" name="perfil" placeholder="Buscar ..." type="text">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </form>
-        <div class="box-tools">
-            <ul class="pagination pagination-sm no-margin pull-right">
-                <?= $links ?>
-            </ul>
+<div class="col-xs-12">
+    <div class="card">
+        <div class="header">
+            <strong><?= $title ?></strong>
         </div>
-    </div>
-    <div class="box-body no-padding">
-        <table class="table table-bordered table-hover table-striped">
-            <tbody>
-                <tr>
-                    <th>Perfil</th>
-                    <th>Acciones</th>
-                </tr>
-                <?php foreach ($perfiles as $perfil) { ?>
-                    <tr>
-                        <td><?= $perfil['perfil'] ?></td>
-                        <td>
-                            <a href="/perfiles/modificar/<?= $perfil['idperfil'] ?>" data-pacement="top" data-toggle="tooltip" data-original-title="Modificar" class="tooltips">
-                                <button class="btn btn-primary btn-xs">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+        <div class="body">
+            <div class="row clearfix">
+                <div class="col-sm-12">
+                    <form method="GET" class="input-group">
+                        <input class="form-control" name="perfil" placeholder="Buscar ..." type="text">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-search"></i>
+                        </span>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="row clearfix">
+                <div class="col-sm-12">
+                    <ul class="pagination pagination-primary">
+                        <?= $links ?>
+                    </ul>
+                </div>
+                <div class="col-sm-12 table-responsive">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Perfil</th>
+                                <th>Acción</th>
+                            </tr>
+                            <?php foreach ($perfiles as $perfil) { ?>
+                                <tr>
+                                    <td><?= $perfil['perfil'] ?></td>
+                                    <td>
+                                        <a href="/perfiles/modificar/<?= $perfil['idperfil'] ?>/" data-pacement="top" data-toggle="tooltip" data-original-title="Modificar" class="tooltips">
+                                            <button class="btn btn-info btn-sm">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

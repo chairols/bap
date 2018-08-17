@@ -28,8 +28,8 @@ class Perfiles extends CI_Controller {
 
         $per_page = 10;
         $perfil = '';
-        if ($this->input->post('perfil') !== null) {
-            $perfil = $this->input->post('perfil');
+        if ($this->input->get('perfil') !== null) {
+            $perfil = $this->input->get('perfil');
         }
         /*
          * inicio paginador
