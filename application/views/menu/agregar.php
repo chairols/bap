@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" id="agregar" class="btn bg-green btn-round waves-effect m-t-20">Agregar</button>
+                        <button type="button" id="agregar" class="btn btn-raised btn-primary btn-round waves-effect">Agregar</button>
                     </div>
                 </div>
             </div>
