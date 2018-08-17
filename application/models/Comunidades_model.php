@@ -14,5 +14,13 @@ class Comunidades_model extends CI_Model {
         $query = $this->db->get_where('comunidades', $where);
         return $query->row_array();
     }
+    
+    /*
+     *  Comunidades/agregar_ajax
+     */
+    public function set($datos) {
+        $this->db->insert('comunidades', $datos);
+        return $this->db->insert_id();
+    }
 }
 ?>

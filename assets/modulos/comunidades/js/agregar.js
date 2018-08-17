@@ -1,7 +1,4 @@
 $("#agregar").click(function () {
-
-
-
     datos = {
         'codigo': $("#codigo").val(),
         'comunidad': $("#comunidad").val(),
@@ -23,7 +20,7 @@ $("#agregar").click(function () {
                     allow_dismiss: false
                 });
             } else if (resultado['status'] == 'ok') {
-                $.notify('<strong>Se agregò correctamente</strong>', 
+                $.notify(resultado['data'], 
                 {   type: 'success',
                     allow_dismiss: false
                 });
