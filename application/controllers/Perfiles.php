@@ -103,8 +103,41 @@ class Perfiles extends CI_Controller {
         $this->load->view('perfiles/modificar');
         $this->load->view('layout/footer');
     }
-    
-        public function actualizar_accesos() {
+
+    public function modificar_ajax() {
+        $this->form_validation->set_rules('idperfil', 'ID de Perfil', 'required|integer');
+        $this->form_validation->set_rules('perfil', 'Perfil', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $json = array(
+                'status' => 'error',
+                'data' => validation_errors()
+            );
+            echo json_encode($json);
+        } else {
+            $datos = array(
+                'perfil' => $this->input->post('perfil')
+            );
+            $where = array(
+                'idperfil' => $this->input->post('idperfil')
+            );
+            $respuesta = $this->perfiles_model->update($datos, $where);
+            if ($respuesta) {
+                $json = array(
+                    'status' => 'ok'
+                );
+                echo json_encode($json);
+            } else {
+                $json = array(
+                    'status' => 'error',
+                    'data' => 'No se pudo actualizar el perfil <strong>'.$this->input->post('perfil').'</strong>'
+                );
+                echo json_encode($json);
+            }
+        }
+    }
+
+    public function actualizar_accesos() {
         $this->form_validation->set_rules('idmenu', 'Menú', 'required|integer');
         $this->form_validation->set_rules('idperfil', 'Perfil', 'required|integer');
         if ($this->form_validation->run() == FALSE) {
@@ -134,11 +167,11 @@ class Perfiles extends CI_Controller {
             }
         }
     }
-    
-        public function actualizar_orden() {
+
+    public function actualizar_orden() {
         $this->form_validation->set_rules('orden', 'Orden', 'required');
-        
-        if($this->form_validation->run() == FALSE) {
+
+        if ($this->form_validation->run() == FALSE) {
             $json = array(
                 'status' => 'error',
                 'data' => validation_errors()
@@ -188,7 +221,6 @@ class Perfiles extends CI_Controller {
             );
             echo json_encode($json);
         }
-        
     }
 
 }

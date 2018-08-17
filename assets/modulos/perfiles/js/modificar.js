@@ -48,13 +48,26 @@ function actualizar(idmenu, idperfil) {
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                notifyError('<strong>ERROR</strong>' + resultado['data'], 5000);
-                
+                $.notify('<strong>' + resultado['data'] + '</strong>', 
+                {
+                    type: 'danger',
+                    allow_dismiss: false
+                });
             } else if (resultado['status'] == 'ok') {
                 $("#progreso-"+idmenu).hide();
-                
+                $.notify('Se actualizó correctamente', 
+                {   type: 'success',
+                    allow_dismiss: false
+                });
             }
             $("#checkbox-"+idmenu).removeAttr("disabled");
+        },
+        error: function (xhr) { // if error occured
+            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
+            {
+                type: 'danger',
+                allow_dismiss: false
+            });
         }
     });
     
@@ -75,11 +88,61 @@ function actualizar_orden() {
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                alertify.error(resultado['data']);
+                $.notify('<strong>' + resultado['data'] + '</strong>', 
+                {
+                    type: 'danger',
+                    allow_dismiss: false
+                });
             } else if (resultado['status'] == 'ok') {
-                alertify.success("Se actualizó correctamente.");
-                
+                $.notify('Se ordenó correctamente', 
+                {   type: 'success',
+                    allow_dismiss: false
+                });
             }
+        },
+        error: function (xhr) { // if error occured
+            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
+            {
+                type: 'danger',
+                allow_dismiss: false
+            });
         }
     });
 }
+
+$("#actualizar").click(function() {
+    datos = {
+        'perfil': $("#perfil").val(),
+        'idperfil': $("#perfil").attr('idperfil')
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/perfiles/modificar_ajax/',
+        data: datos,
+        beforeSend: function () {
+            
+        },
+        success: function (data) {
+            resultado = $.parseJSON(data);
+            if (resultado['status'] == 'error') {
+                $.notify('<strong>' + resultado['data'] + '</strong>', 
+                {
+                    type: 'danger',
+                    allow_dismiss: false
+                });
+            } else if (resultado['status'] == 'ok') {
+                $.notify('Se ordenó correctamente', 
+                {   type: 'success',
+                    allow_dismiss: false
+                });
+            }
+        },
+        error: function (xhr) { // if error occured
+            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
+            {
+                type: 'danger',
+                allow_dismiss: false
+            });
+        }
+    });
+});

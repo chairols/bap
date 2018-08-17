@@ -76,6 +76,13 @@ class Perfiles_model extends CI_Model {
         return $this->db->insert_id();
     }
 
+    /*
+     *  Perfiles/modificar_ajax
+     */
+    public function update($datos, $where) {
+        $this->db->update('perfiles', $datos, $where);
+        return $this->db->affected_rows();
+    }
 }
 
 ?>
