@@ -131,7 +131,7 @@ $("#actualizar").click(function() {
                     allow_dismiss: false
                 });
             } else if (resultado['status'] == 'ok') {
-                $.notify('Se ordenó correctamente', 
+                $.notify(resultado['data'], 
                 {   type: 'success',
                     allow_dismiss: false
                 });

@@ -124,7 +124,8 @@ class Perfiles extends CI_Controller {
             $respuesta = $this->perfiles_model->update($datos, $where);
             if ($respuesta) {
                 $json = array(
-                    'status' => 'ok'
+                    'status' => 'ok',
+                    'data' => 'El perfil se actualizó correctamente'
                 );
                 echo json_encode($json);
             } else {
