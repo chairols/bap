@@ -11,8 +11,8 @@
                         <input class="form-control" maxlength="6" type="text" value="<?=$random?>" id="codigo" disabled="">
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-xs-3">Nombre</label>
-                        <input class="form-control" maxlength="100" type="text" id="nombre" placeholder="Nombre" autofocus="">
+                        <label class="control-label col-xs-3">Comunidad</label>
+                        <input class="form-control" maxlength="100" type="text" id="comunidad" placeholder="Nombre" autofocus="">
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Dirección</label>
