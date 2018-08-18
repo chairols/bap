@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Padre</label>
-                        <select class="form-control show-tick" id="padre">
+                        <select class="form-control show-tick" id="padre" data-live-search="true">
                             <option value="0" selected>--- No tiene ---</option>
                             <?php foreach ($padres as $padre) { ?>
                                 <option value="<?= $padre['idmenu'] ?>"><?= $padre['titulo'] ?></option>

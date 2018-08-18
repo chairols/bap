@@ -150,7 +150,8 @@ class Menu extends CI_Controller {
                  */
                 if ($id) {
                     $json = array(
-                        'status' => 'ok'
+                        'status' => 'ok',
+                        'data' => 'Se agregó correctamente el menú'
                     );
                     echo json_encode($json);
                 } else {
