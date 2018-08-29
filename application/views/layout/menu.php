@@ -744,16 +744,16 @@
                 <ul class="list-unstyled team-info margin-0">
                     <li class="m-r-15"><h2>Design Team</h2></li>
                     <li>
-                        <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
+                        <img src="/assets/oreoadmin-140/html-light/assets/images/xs/avatar2.jpg" alt="Avatar">
                     </li>
                     <li>
-                        <img src="assets/images/xs/avatar3.jpg" alt="Avatar">
+                        <img src="/assets/oreoadmin-140/html-light/assets/images/xs/avatar3.jpg" alt="Avatar">
                     </li>
                     <li>
-                        <img src="assets/images/xs/avatar4.jpg" alt="Avatar">
+                        <img src="/assets/oreoadmin-140/html-light/assets/images/xs/avatar4.jpg" alt="Avatar">
                     </li>
                     <li>
-                        <img src="assets/images/xs/avatar6.jpg" alt="Avatar">
+                        <img src="/assets/oreoadmin-140/html-light/assets/images/xs/avatar6.jpg" alt="Avatar">
                     </li>
                     <li>
                         <a href="javascript:void(0);" title="Add Member"><i class="zmdi zmdi-plus-circle"></i></a>
