@@ -131,7 +131,7 @@ class Perfiles extends CI_Controller {
             } else {
                 $json = array(
                     'status' => 'error',
-                    'data' => 'No se pudo actualizar el perfil <strong>'.$this->input->post('perfil').'</strong>'
+                    'data' => 'No se pudo actualizar el perfil <strong>' . $this->input->post('perfil') . '</strong>'
                 );
                 echo json_encode($json);
             }
@@ -221,6 +221,62 @@ class Perfiles extends CI_Controller {
                 'status' => 'ok'
             );
             echo json_encode($json);
+        }
+    }
+
+    public function agregar() {
+        $data['title'] = 'Agregar Perfil';
+        $data['session'] = $this->session->all_userdata();
+        $data['menu'] = $this->r_session->get_menu();
+        $data['javascript'] = array(
+            '/assets/modulos/perfiles/js/agregar.js'
+        );
+
+
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('perfiles/agregar');
+        $this->load->view('layout/footer');
+    }
+
+    public function agregar_ajax() {
+        $this->form_validation->set_rules('perfil', 'Perfil', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $json = array(
+                'status' => 'error',
+                'data' => validation_errors()
+            );
+            echo json_encode($json);
+        } else {
+            $datos = array(
+                'perfil' => $this->input->post('perfil')
+            );
+            $resultado = $this->perfiles_model->get_where($datos);
+
+            if ($resultado) {
+                $json = array(
+                    'status' => 'error',
+                    'data' => 'El perfil ' . $this->input->post('perfil') . " ya existe."
+                );
+                echo json_encode($json);
+            } else {
+                $id = $this->perfiles_model->set($datos);
+                if ($id) {
+                    $json = array(
+                        'status' => 'ok',
+                        'data' => 'Se agregó el perfil ' . $this->input->post('perfil') . "."
+                    );
+                    echo json_encode($json);
+                } else {
+                    $json = array(
+                        'status' => 'error',
+                        'data' => 'No se pudo agregar el perfil ' . $this->input->post('perfil') . "."
+                    );
+                    echo json_encode($json);
+                }
+            }
         }
     }
 
