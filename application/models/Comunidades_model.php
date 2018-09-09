@@ -22,5 +22,34 @@ class Comunidades_model extends CI_Model {
         $this->db->insert('comunidades', $datos);
         return $this->db->insert_id();
     }
+    
+    /*
+     *  Comunidades/listar
+     */
+    public function get_cantidad($code, $estado) {
+        $query = $this->db->query("SELECT COUNT(*) as cantidad
+                                    FROM
+                                        comunidades
+                                    WHERE
+                                        comunidad LIKE '%$code%' AND
+                                        estado = '$estado'");
+        return $query->row_array();
+    }
+    
+    /*
+     *  Comunidades/listar
+     */
+    public function gets_limit($comunidad, $pagina, $cantidad, $estado) {
+        $query = $this->db->query("SELECT *
+                                    FROM
+                                        comunidades
+                                    WHERE
+                                        comunidad LIKE '%$comunidad%' AND
+                                        estado = '$estado' 
+                                    ORDER BY
+                                        comunidad
+                                    LIMIT $pagina, $cantidad");
+        return $query->result_array();
+    }
 }
 ?>
