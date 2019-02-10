@@ -5,17 +5,31 @@
         </div>
         <div class="body">
             <div class="row clearfix">
+                <div class="col-lg-12">
+                    <p><b>Código</b></p>
+                    <input class="form-control" maxlength="6" type="text" value="<?=$random?>" id="codigo" disabled="">
+                </div>
+            </div>
+            <div class="row clearfix m-t-15">
+                <div class="col-lg-12">
+                    <p><b>Comunidad</b></p>
+                    <input class="form-control" maxlength="100" type="text" id="comunidad" placeholder="Nombre" autofocus="">
+                </div>
+            </div>
+            <div class="row clearfix m-t-15">
+                <div class="col-lg-12">
+                    <p><b>País</b></p>
+                    <select class="form-control show-tick" id="pais" data-live-search="true">
+                        <?php foreach($paises as $pais) { ?>
+                            <option value="<?=$pais['idpais']?>"><?=$pais['pais']?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="row clearfix m-t-15">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label class="control-label col-xs-3">Código</label>
-                        <input class="form-control" maxlength="6" type="text" value="<?=$random?>" id="codigo" disabled="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Comunidad</label>
-                        <input class="form-control" maxlength="100" type="text" id="comunidad" placeholder="Nombre" autofocus="">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Dirección</label>
+                        <p><b>Dirección</b></p>
                         <input class="form-control" maxlength="100" type="text" id="direccion" placeholder="Dirección">
                     </div>
                     <div class="form-group">

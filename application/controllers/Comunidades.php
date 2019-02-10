@@ -13,7 +13,8 @@ class Comunidades extends CI_Controller {
             'pagination'
         ));
         $this->load->model(array(
-            'comunidades_model'
+            'comunidades_model',
+            'paises_model'
         ));
 
         $session = $this->session->all_userdata();
@@ -39,6 +40,8 @@ class Comunidades extends CI_Controller {
                 $flag = 0;
             }
         }
+        
+        $data['paises'] = $this->paises_model->gets();
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/menu');
