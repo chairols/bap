@@ -7,6 +7,9 @@ class Paises_model extends CI_Model {
         parent::__construct();
     }
     
+    /*
+     *  comunidades/agregar
+     */
     public function gets() {
         $this->db->select('*');
         $this->db->from('paises');
@@ -17,6 +20,9 @@ class Paises_model extends CI_Model {
         return $query->result_array();
     }
     
+    /*
+     *  Paises/listar
+     */
     public function get_cantidad_paises($pais) {
         $query = $this->db->query("SELECT COUNT(*) as cantidad
                                     FROM
@@ -27,6 +33,9 @@ class Paises_model extends CI_Model {
         return $query->row_array();
     }
     
+    /*
+     *  Paises/listar
+     */
     public function gets_where_paises_limit($pais, $pagina, $cantidad_por_pagina) {
         $query = $this->db->query("SELECT *
                                     FROM

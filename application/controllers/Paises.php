@@ -67,5 +67,23 @@ class Paises extends CI_Controller {
         $this->load->view('paises/listar');
         $this->load->view('layout/footer');
     }
+    
+    public function agregar() {
+        $data['title'] = 'Agregar País';
+        $data['session'] = $this->session->all_userdata();
+        $data['menu'] = $this->r_session->get_menu();
+        $data['javascript'] = array(
+            '/assets/modulos/paises/js/agregar.js'
+        );
+        
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('paises/agregar');
+        $this->load->view('layout/footer');
+    }
+    
+    public function agregar_ajax() {
+        
+    }
 }
 ?>
