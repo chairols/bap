@@ -9,7 +9,8 @@ class Paises extends CI_Controller {
         $this->load->library(array(
             'session',
             'r_session',
-            'pagination'
+            'pagination',
+            'form_validation'
         ));
         $this->load->model(array(
             'paises_model'
@@ -83,7 +84,19 @@ class Paises extends CI_Controller {
     }
     
     public function agregar_ajax() {
+        $session = $this->session->all_userdata();
+
+        $this->form_validation->set_rules('pais', 'País', 'required');
         
+        if ($this->form_validation->run() == FALSE) {
+            $json = array(
+                'status' => 'error',
+                'data' => validation_errors()
+            );
+            echo json_encode($json);
+        } else {
+            
+        }
     }
 }
 ?>

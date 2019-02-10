@@ -13,6 +13,9 @@
             <div class="row clearfix m-t-15">
                 <div class="col-lg-12">
                     <button type="button" id="agregar" class="btn btn-primary btn-round waves-effect">Agregar</button>
+                    <button type="button" id="loading" class="btn btn-primary btn-sm btn-round waves-effect" style="display: none;">
+                        <i class="material-icons zmdi-hc-spin">refresh</i>
+                    </button>
                 </div>
             </div>
         </div>
