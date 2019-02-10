@@ -47,5 +47,29 @@ class Paises_model extends CI_Model {
                                     LIMIT $pagina, $cantidad_por_pagina");
         return $query->result_array();
     }
+    
+    /*
+     *  Paises/agregar_ajax
+     */
+    public function get_where($where) {
+        $query = $this->db->get_where('paises', $where);
+        return $query->row_array();
+    }
+    
+    /*
+     *  Paises/agregar_ajax
+     */
+    public function update($data, $where) {
+        $this->db->update('paises', $data, $where);
+        return $this->db->affected_rows();
+    }
+    
+    /*
+     *  Paises/agregar_ajax
+     */
+    public function set($datos) {
+        $this->db->insert('paises', $datos);
+        return $this->db->insert_id();
+    }
 }
 ?>

@@ -7,7 +7,7 @@
             <div class="row clearfix">
                 <div class="col-sm-12">
                     <form method="GET" class="input-group">
-                        <input class="form-control" name="titulo" placeholder="Buscar ..." type="text">
+                        <input class="form-control" name="pais" value="<?=$this->input->get('pais')?>" placeholder="Buscar ..." type="text">
                         <span class="input-group-addon">
                             <i class="zmdi zmdi-search"></i>
                         </span>

@@ -29,6 +29,7 @@ $("#agregar").click(function() {
             }
             $("#loading").hide();
             $("#agregar").show();
+            $("#pais").focus();
         },
         error: function (xhr) { // if error occured
             $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
@@ -38,6 +39,7 @@ $("#agregar").click(function() {
             });
             $("#loading").hide();
             $("#agregar").show();
+            $("#pais").focus();
         }
     });
 });

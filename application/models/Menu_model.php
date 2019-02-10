@@ -147,7 +147,7 @@ class Menu_model extends CI_Model {
         return $query->result_array();
     }
     
-        /*
+    /*
      *  Perfiles/actualizar_orden
      */
     public function update_menu($data, $where) {
