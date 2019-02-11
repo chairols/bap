@@ -15,6 +15,9 @@ class Paises extends CI_Controller {
         $this->load->model(array(
             'paises_model'
         ));
+        $this->load->helper(array(
+            'url'
+        ));
     }
 
     public function listar($pagina = 0) {

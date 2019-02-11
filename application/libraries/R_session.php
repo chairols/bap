@@ -56,6 +56,10 @@ class R_session {
         ));
         $session = $this->CI->session->all_userdata();
         
+        if(count($session) < 6) {
+            redirect('/usuarios/login/', 'refresh');
+        }
+        
         $string = '/'.$this->CI->uri->segment(1).'/';
         $segmentoaux = $string;
         if($this->CI->uri->segment(2))
