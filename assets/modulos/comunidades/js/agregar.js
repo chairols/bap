@@ -14,15 +14,22 @@ $("#agregar").click(function () {
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                $.notify('<strong>' + resultado['data'] + '</strong>', 
-                {
-                    type: 'danger',
-                    allow_dismiss: false
+                $context = 'error';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+    
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
                 });
             } else if (resultado['status'] == 'ok') {
-                $.notify(resultado['data'], 
-                {   type: 'success',
-                    allow_dismiss: false
+                $context = 'success';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+    
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
                 });
                 document.getElementById("codigo").value = "";
                 document.getElementById("comunidad").value = "";

@@ -3,7 +3,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-12">                        
-                    <h2><?=$title?></h2>
+                    <h2><?= $title ?></h2>
                 </div>            
                 <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                     <ul class="breadcrumb justify-content-end">
@@ -14,13 +14,19 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-xs-12">
-        <div class="card">
-            <div class="body">
-                <pre>
-                    <?php print_r($session); ?>
-                </pre>
+
+        <div class="row clealfix">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Bootstrap treeview</h2>
+                    </div>
+                    <div class="body">
+                        <pre>
+                            <?php print_r($session); ?>
+                        </pre>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
