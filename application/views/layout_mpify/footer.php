@@ -12,6 +12,7 @@
 <script src="/assets/mplifyadmin/html/light/assets/bundles/morrisscripts.bundle.js"></script>
 <script src="/assets/mplifyadmin/html/light/assets/js/pages/treeview/jstree.js"></script>
 <script src="/assets/mplifyadmin/html/light/assets/js/pages/treeview/bootstrap-treeview.js"></script>
+<script src="/assets/mplifyadmin/html/light/assets/js/pages/forms/advanced-form-elements.js"></script>
 <?php
 if (isset($javascript) && count($javascript) > 0) { ?>
 <!-- Carga de Scripts de la vista -->

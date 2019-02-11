@@ -37,7 +37,7 @@
                         <div class="row clearfix m-t-15">
                             <div class="col-lg-12">
                                 <p><b>País</b></p>
-                                <select class="form-control select2" id="pais" data-live-search="true">
+                                <select class="form-control show-tick ms select2" id="pais" data-live-search="true">
                                     <?php foreach ($paises as $pais) { ?>
                                         <option value="<?= $pais['idpais'] ?>"><?= $pais['pais'] ?></option>
                                     <?php } ?>
