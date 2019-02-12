@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
         <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/summernote/dist/summernote.css"/>
         <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/toastr/toastr.min.css" />
+        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
 
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="/assets/mplifyadmin/html/light/assets/css/main.css">

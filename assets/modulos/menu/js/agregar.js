@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    //$(".sss").multiselect();
+});
+
 $("#agregar").click(function () {
     datos = {
         'icono': $("#icono").val(),
@@ -13,35 +17,49 @@ $("#agregar").click(function () {
         url: '/menu/agregar_ajax/',
         data: datos,
         beforeSend: function () {
-
+            $("#agregar").hide();
+            $("#loading").show();
         },
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                $.notify('<strong>' + resultado['data'] + '</strong>',
-                        {
-                            type: 'danger',
-                            allow_dismiss: false
-                        });
+                $context = 'error';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
+                });
             } else if (resultado['status'] == 'ok') {
-                $.notify(resultado['data'],
-                        {
-                            type: 'success',
-                            allow_dismiss: false
-                        });
+                $context = 'success';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
+                });
                 document.getElementById("icono").value = "";
                 document.getElementById("titulo").value = "";
                 document.getElementById("menu").value = "";
                 document.getElementById("href").value = "";
                 document.getElementById("orden").value = "";
             }
+            $("#loading").hide();
+            $("#agregar").show();
         },
         error: function (xhr) { // if error occured
-            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
-            {
-                type: 'danger',
-                allow_dismiss: false
+            $context = 'error';
+            $message = xhr.statusText;
+            $position = 'toast-top-right';
+
+            toastr.remove();
+            toastr[$context]($message, '', {
+                positionClass: $position
             });
+            $("#loading").hide();
+            $("#agregar").show();
         }
     });
 });

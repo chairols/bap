@@ -6,7 +6,7 @@
 <script src="/assets/mplifyadmin/html/assets/vendor/jstree/jstree.min.js"></script>
 <script src="/assets/mplifyadmin/html/assets/vendor/toastr/toastr.js"></script>
 
-<script src="/assets/mplifyadmin/html/assets/vendor/select2/select2.min.js"></script>
+<script src="/assets/mplifyadmin/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 <script src="/assets/mplifyadmin/html/assets/vendor/summernote/dist/summernote.js"></script>
 
 

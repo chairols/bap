@@ -91,10 +91,10 @@ class Menu extends CI_Controller {
         }
 
         
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
+        $this->load->view('layout_mpify/header', $data);
+        $this->load->view('layout_mpify/menu');
         $this->load->view('menu/agregar');
-        $this->load->view('layout/footer');
+        $this->load->view('layout_mpify/footer');
     }
     
     public function agregar_ajax() {
