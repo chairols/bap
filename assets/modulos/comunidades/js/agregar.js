@@ -10,7 +10,8 @@ $("#agregar").click(function () {
         url: '/comunidades/agregar_ajax/',
         data: datos,
         beforeSend: function () {
-
+            $("#agregar").hide();
+            $("#loading").show();
         },
         success: function (data) {
             resultado = $.parseJSON(data);
@@ -36,6 +37,8 @@ $("#agregar").click(function () {
                 document.getElementById("comunidad").value = "";
                 document.getElementById("direccion").value = "";
             }
+            $("#loading").hide();
+            $("#agregar").show();
         },
         error: function (xhr) { // if error occured
             $context = 'error';
@@ -46,6 +49,8 @@ $("#agregar").click(function () {
             toastr[$context]($message, '', {
                 positionClass: $position
             });
+            $("#loading").hide();
+            $("#agregar").show();
         }
     });
 });

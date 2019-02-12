@@ -50,6 +50,9 @@
                         <div class="row clearfix m-t-20">
                             <div class="col-lg-12">
                                 <button type="button" id="agregar" class="btn btn-primary">Agregar</button>
+                                <button type="button" id="loading" class="btn btn-primary" style="display: none;">
+                                    <i class="fa fa-refresh fa-spin"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
