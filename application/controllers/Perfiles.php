@@ -62,10 +62,10 @@ class Perfiles extends CI_Controller {
 
         $data['perfiles'] = $this->perfiles_model->gets_limit($perfil, $pagina, $config['per_page'], 'A');
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
+        $this->load->view('layout_mpify/header', $data);
+        $this->load->view('layout_mpify/menu');
         $this->load->view('perfiles/listar');
-        $this->load->view('layout/footer');
+        $this->load->view('layout_mpify/footer');
     }
 
     public function modificar($idperfil = null) {
