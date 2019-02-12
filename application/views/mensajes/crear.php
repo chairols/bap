@@ -26,9 +26,6 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Asunto">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="CC">
-                            </div>
                         </form>
                         <hr>
                         <div class="summernote">
