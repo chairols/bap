@@ -44,7 +44,7 @@
         <div class="page-loader-wrapper">
             <div class="loader">
                 <div class="m-t-30"><img src="/assets/mplifyadmin/html/assets/images/thumbnail.png" width="48" height="48" alt="Mplify"></div>
-                <p>Please wait...</p>        
+                <p>Cargando...</p>        
             </div>
         </div>
         <!-- Overlay For Sidebars -->

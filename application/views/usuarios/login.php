@@ -26,7 +26,7 @@
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle auth-main">
 				<div class="auth-box">
-                    <div class="mobile-logo"><a href="index.html"><img src="../assets/images/logo-icon.svg" alt="Mplify"></a></div>
+                                    <div class="mobile-logo"><a href="index.html"><img src="/assets/mplifyadmin/html/assets/images/logo-icon.svg" alt="Mplify"></a></div>
                     <div class="auth-left">
                         <div class="left-top">
                             <a href="index.html">
