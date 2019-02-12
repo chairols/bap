@@ -66,10 +66,10 @@ class Paises extends CI_Controller {
         $data['paises'] = $this->paises_model->gets_where_paises_limit($pais, $pagina, $per_page);
 
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
+        $this->load->view('layout_mpify/header', $data);
+        $this->load->view('layout_mpify/menu');
         $this->load->view('paises/listar');
-        $this->load->view('layout/footer');
+        $this->load->view('layout_mpify/footer');
     }
 
     public function agregar() {
