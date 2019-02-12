@@ -37,7 +37,7 @@
     ?>
 
 
-    <body class="theme-green">
+    <body class="theme-blue">
 
         <!-- Page Loader -->
         <div class="page-loader-wrapper">
