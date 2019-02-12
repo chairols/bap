@@ -183,7 +183,8 @@ class Perfiles extends CI_Controller {
             $contador1 = 1;
             foreach ($resultado as $r1) {
                 $data = array(
-                    'orden' => $contador1
+                    'orden' => $contador1,
+                    'padre' => 0
                 );
                 $where = array(
                     'idmenu' => $r1->id
@@ -193,7 +194,8 @@ class Perfiles extends CI_Controller {
                     $contador2 = 1;
                     foreach ($r1->children as $r2) {
                         $data = array(
-                            'orden' => $contador2
+                            'orden' => $contador2,
+                            'padre' => $r1->id
                         );
                         $where = array(
                             'idmenu' => $r2->id
@@ -203,7 +205,8 @@ class Perfiles extends CI_Controller {
                             $contador3 = 1;
                             foreach ($r2->children as $r3) {
                                 $data = array(
-                                    'orden' => $contador3
+                                    'orden' => $contador3,
+                                    'padre' => $r2->id
                                 );
                                 $where = array(
                                     'idmenu' => $r3->id
