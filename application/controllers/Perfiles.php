@@ -98,10 +98,10 @@ class Perfiles extends CI_Controller {
             }
         }
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
+        $this->load->view('layout_mpify/header', $data);
+        $this->load->view('layout_mpify/menu');
         $this->load->view('perfiles/modificar');
-        $this->load->view('layout/footer');
+        $this->load->view('layout_mpify/footer');
     }
 
     public function modificar_ajax() {

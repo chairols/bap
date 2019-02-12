@@ -8,6 +8,7 @@
 
 <script src="/assets/mplifyadmin/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 <script src="/assets/mplifyadmin/html/assets/vendor/summernote/dist/summernote.js"></script>
+<script src="/assets/mplifyadmin/html/assets/vendor/nestable/jquery.nestable.js"></script>
 
 
 <script src="/assets/mplifyadmin/html/light/assets/bundles/mainscripts.bundle.js"></script>

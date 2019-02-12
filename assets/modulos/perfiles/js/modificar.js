@@ -1,9 +1,9 @@
-$(document).ready(function()
+$(document).ready(function ()
 {
-    var updateOutput = function(e)
+    var updateOutput = function (e)
     {
-        var list   = e.length ? e : $(e.target),
-            output = list.data('output');
+        var list = e.length ? e : $(e.target),
+                output = list.data('output');
         if (window.JSON) {
             output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
         } else {
@@ -15,24 +15,24 @@ $(document).ready(function()
     $('#nestable').nestable({
         group: 1
     })
-    .on('change', updateOutput);
+            .on('change', updateOutput);
 
-    
-    $("#nestable").change(function() {
+
+    $("#nestable").change(function () {
         actualizar_orden();
     });
 
     // output initial serialised data
     updateOutput($('#nestable').data('output', $('#nestable-output')));
 
-    
+
 });
 
 function actualizar(idmenu, idperfil) {
-    console.log('Menú: '+idmenu);
-    console.log('Perfil: '+idperfil);
-    
-    
+    console.log('Menú: ' + idmenu);
+    console.log('Perfil: ' + idperfil);
+
+
     datos = {
         'idmenu': idmenu,
         'idperfil': idperfil
@@ -42,36 +42,36 @@ function actualizar(idmenu, idperfil) {
         url: '/perfiles/actualizar_accesos/',
         data: datos,
         beforeSend: function () {
-            $("#checkbox-"+idmenu).attr("disabled", "disabled");
-            $("#progreso-"+idmenu).show();
+            $("#checkbox-" + idmenu).attr("disabled", "disabled");
+            $("#progreso-" + idmenu).show();
         },
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                $.notify('<strong>' + resultado['data'] + '</strong>', 
-                {
-                    type: 'danger',
-                    allow_dismiss: false
-                });
+                $.notify('<strong>' + resultado['data'] + '</strong>',
+                        {
+                            type: 'danger',
+                            allow_dismiss: false
+                        });
             } else if (resultado['status'] == 'ok') {
-                $("#progreso-"+idmenu).hide();
-                $.notify('Se actualizó correctamente', 
-                {   type: 'success',
-                    allow_dismiss: false
-                });
+                $("#progreso-" + idmenu).hide();
+                $.notify('Se actualizó correctamente',
+                        {type: 'success',
+                            allow_dismiss: false
+                        });
             }
-            $("#checkbox-"+idmenu).removeAttr("disabled");
+            $("#checkbox-" + idmenu).removeAttr("disabled");
         },
         error: function (xhr) { // if error occured
-            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
-            {
-                type: 'danger',
-                allow_dismiss: false
-            });
+            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText,
+                    {
+                        type: 'danger',
+                        allow_dismiss: false
+                    });
         }
     });
-    
-    
+
+
 }
 
 function actualizar_orden() {
@@ -83,34 +83,41 @@ function actualizar_orden() {
         url: '/perfiles/actualizar_orden/',
         data: datos,
         beforeSend: function () {
-            
+
         },
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                $.notify('<strong>' + resultado['data'] + '</strong>', 
-                {
-                    type: 'danger',
-                    allow_dismiss: false
+                $context = 'error';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
                 });
             } else if (resultado['status'] == 'ok') {
-                $.notify('Se ordenó correctamente', 
-                {   type: 'success',
-                    allow_dismiss: false
+                $context = 'success';
+                $message = 'Se actualizó correctamente';
+                $position = 'toast-top-right';
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
                 });
             }
         },
         error: function (xhr) { // if error occured
-            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
-            {
-                type: 'danger',
-                allow_dismiss: false
-            });
+            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText,
+                    {
+                        type: 'danger',
+                        allow_dismiss: false
+                    });
         }
     });
 }
 
-$("#actualizar").click(function() {
+$("#actualizar").click(function () {
     datos = {
         'perfil': $("#perfil").val(),
         'idperfil': $("#perfil").attr('idperfil')
@@ -120,29 +127,44 @@ $("#actualizar").click(function() {
         url: '/perfiles/modificar_ajax/',
         data: datos,
         beforeSend: function () {
-            
+            $("#actualizar").hide();
+            $("#actualizar_loading").show();
         },
         success: function (data) {
             resultado = $.parseJSON(data);
             if (resultado['status'] == 'error') {
-                $.notify('<strong>' + resultado['data'] + '</strong>', 
-                {
-                    type: 'danger',
-                    allow_dismiss: false
+                $context = 'error';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
                 });
             } else if (resultado['status'] == 'ok') {
-                $.notify(resultado['data'], 
-                {   type: 'success',
-                    allow_dismiss: false
+                $context = 'success';
+                $message = resultado['data'];
+                $position = 'toast-top-right';
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $position
                 });
             }
+            $("#actualizar_loading").hide();
+            $("#actualizar").show();
         },
         error: function (xhr) { // if error occured
-            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
-            {
-                type: 'danger',
-                allow_dismiss: false
+            $context = 'error';
+            $message = xhr.statusText;
+            $position = 'toast-top-right';
+
+            toastr.remove();
+            toastr[$context]($message, '', {
+                positionClass: $position
             });
+            $("#actualizar_loading").hide();
+            $("#actualizar").show();
         }
     });
 });

@@ -135,84 +135,101 @@
 
 </style>
 
-<div class="col-xs-12">
-    <div class="card">
-        <div class="header">
-            <h2>
-                <strong><?= $title ?></strong>
-            </h2>
-        </div>
-        <div class="body">
-            <div class="row clearfix">
-                <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
-                    <label>Perfil</label>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-8">
-                    <div class="form-group">
-                        <input id="perfil" idperfil="<?=$perfil['idperfil']?>" class="form-control" type="text" value="<?= $perfil['perfil'] ?>" autofocus>
-                    </div>
-                </div>
-                <div class="col-sm-8 offset-sm-2">
-                    <button id="actualizar" class="btn btn-raised btn-primary btn-round waves-effect" type="button">Actualizar</button>
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 col-sm-12">                        
+                    <h2><?= $title ?></h2>
+                </div>            
+                <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                    <ul class="breadcrumb justify-content-end">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>                            
+                        <li class="breadcrumb-item">UI Elements</li>
+                        <li class="breadcrumb-item active">Treeview</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="col-xs-12">
-    <div class="card">
-        <div class="header">
-            <h2>
-                <strong>Accesos</strong>
-            </h2>
-        </div>
-        <div class="body">
-            <div class="cf nestable-lists">
-                <div class="dd" id="nestable">
-                    <ol class="dd-list">
-                        <?php foreach ($mmenu as $m1) { ?>
-                            <li class="dd-item dd3-item" data-id="<?= $m1['idmenu'] ?>">
-                                <div class="dd-handle dd3-handle"></div>
-                                <div class="dd3-content">
-                                    <input id="checkbox-<?= $m1['idmenu'] ?>" type="checkbox"<?= ($m1['idperfil']) ? " checked" : "" ?> onclick="actualizar(<?= $m1['idmenu'] ?>, <?= $perfil['idperfil'] ?>);"> <i class="<?= $m1['icono'] ?>"></i> <?= $m1['titulo'] ?> <?= ($m1['visible'] == 1) ? "<i class='text-green fa fa-eye'></i>" : "<i class='text-red fa fa-eye-slash'></i>" ?> 
-                                    <span id="progreso-<?= $m1['idmenu'] ?>" style="display: none;">
-                                        <i class="fa fa-refresh fa-spin"></i>
-                                    </span>
+        <div class="row clealfix">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label>Perfil</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    <input id="perfil" idperfil="<?= $perfil['idperfil'] ?>" class="form-control" type="text" value="<?= $perfil['perfil'] ?>" autofocus>
                                 </div>
-                                <?php if (count($m1['submenu'])) { ?>
-                                    <ol class="dd-list">
-                                        <?php foreach ($m1['submenu'] as $m2) { ?>
-                                            <li class="dd-item dd3-item" data-id="<?= $m2['idmenu'] ?>">
-                                                <div class="dd-handle dd3-handle"></div>
-                                                <div class="dd3-content">
-                                                    <input id="checkbox-<?= $m2['idmenu'] ?>" type="checkbox"<?= ($m2['idperfil']) ? " checked" : "" ?> onclick="actualizar(<?= $m2['idmenu'] ?>, <?= $perfil['idperfil'] ?>);"> <i class="<?= $m2['icono'] ?>"></i> <?= $m2['titulo'] ?> <?= ($m2['visible'] == 1) ? "<i class='text-green fa fa-eye'></i>" : "<i class='text-red fa fa-eye-slash'></i>" ?>
-                                                    <span id="progreso-<?= $m2['idmenu'] ?>" style="display: none;">
-                                                        <i class="fa fa-refresh fa-spin"></i>
-                                                    </span>
-                                                </div>
-                                                <?php if (count($m2['submenu'])) { ?>
-                                                    <ol class="dd-list">
-                                                        <?php foreach ($m2['submenu'] as $m3) { ?>
-                                                            <li class="dd-item dd3-item" data-id="<?= $m3['idmenu'] ?>">
-                                                                <div class="dd-handle dd3-handle"></div>
-                                                                <div class="dd3-content">
-                                                                    <input id="checkbox-<?= $m3['idmenu'] ?>" type="checkbox"<?= ($m3['idperfil']) ? " checked" : "" ?> onclick="actualizar(<?= $m3['idmenu'] ?>, <?= $perfil['idperfil'] ?>);"> <i class="<?= $m3['icono'] ?>"></i> <?= $m3['titulo'] ?> <?= ($m3['visible'] == 1) ? "<i class='text-green fa fa-eye'></i>" : "<i class='text-red fa fa-eye-slash'></i>" ?>
-                                                                    <span id="progreso-<?= $m3['idmenu'] ?>" style="display: none;">
-                                                                        <i class="fa fa-refresh fa-spin"></i>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                                        <?php } ?>
-                                                    </ol>
-                                                <?php } ?>
-                                            </li>
-                                        <?php } ?>
-                                    </ol>
-                                <?php } ?>
-                            </li>
-                        <?php } ?>
-                    </ol>
+                            </div>
+                            <div class="col-sm-8 offset-sm-2">
+                                <button id="actualizar" class="btn btn-primary" type="button">Actualizar</button>
+                                <button id="actualizar_loading" class="btn btn-primary" type="button" style="display: none;">
+                                    <i class="fa fa-refresh fa-spin"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clealfix">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="cf nestable-lists">
+                            <div class="dd" id="nestable">
+                                <ol class="dd-list">
+                                    <?php foreach ($mmenu as $m1) { ?>
+                                        <li class="dd-item dd3-item" data-id="<?= $m1['idmenu'] ?>">
+                                            <div class="dd-handle dd3-handle"></div>
+                                            <div class="dd3-content">
+                                                <input id="checkbox-<?= $m1['idmenu'] ?>" type="checkbox"<?= ($m1['idperfil']) ? " checked" : "" ?> onclick="actualizar(<?= $m1['idmenu'] ?>, <?= $perfil['idperfil'] ?>);"> <i class="<?= $m1['icono'] ?>"></i> <?= $m1['titulo'] ?> <?= ($m1['visible'] == 1) ? "<i class='text-green fa fa-eye'></i>" : "<i class='text-red fa fa-eye-slash'></i>" ?> 
+                                                <span id="progreso-<?= $m1['idmenu'] ?>" style="display: none;">
+                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                </span>
+                                            </div>
+                                            <?php if (count($m1['submenu'])) { ?>
+                                                <ol class="dd-list">
+                                                    <?php foreach ($m1['submenu'] as $m2) { ?>
+                                                        <li class="dd-item dd3-item" data-id="<?= $m2['idmenu'] ?>">
+                                                            <div class="dd-handle dd3-handle"></div>
+                                                            <div class="dd3-content">
+                                                                <input id="checkbox-<?= $m2['idmenu'] ?>" type="checkbox"<?= ($m2['idperfil']) ? " checked" : "" ?> onclick="actualizar(<?= $m2['idmenu'] ?>, <?= $perfil['idperfil'] ?>);"> <i class="<?= $m2['icono'] ?>"></i> <?= $m2['titulo'] ?> <?= ($m2['visible'] == 1) ? "<i class='text-green fa fa-eye'></i>" : "<i class='text-red fa fa-eye-slash'></i>" ?>
+                                                                <span id="progreso-<?= $m2['idmenu'] ?>" style="display: none;">
+                                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                                </span>
+                                                            </div>
+                                                            <?php if (count($m2['submenu'])) { ?>
+                                                                <ol class="dd-list">
+                                                                    <?php foreach ($m2['submenu'] as $m3) { ?>
+                                                                        <li class="dd-item dd3-item" data-id="<?= $m3['idmenu'] ?>">
+                                                                            <div class="dd-handle dd3-handle"></div>
+                                                                            <div class="dd3-content">
+                                                                                <input id="checkbox-<?= $m3['idmenu'] ?>" type="checkbox"<?= ($m3['idperfil']) ? " checked" : "" ?> onclick="actualizar(<?= $m3['idmenu'] ?>, <?= $perfil['idperfil'] ?>);"> <i class="<?= $m3['icono'] ?>"></i> <?= $m3['titulo'] ?> <?= ($m3['visible'] == 1) ? "<i class='text-green fa fa-eye'></i>" : "<i class='text-red fa fa-eye-slash'></i>" ?>
+                                                                                <span id="progreso-<?= $m3['idmenu'] ?>" style="display: none;">
+                                                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                    <?php } ?>
+                                                                </ol>
+                                                            <?php } ?>
+                                                        </li>
+                                                    <?php } ?>
+                                                </ol>
+                                            <?php } ?>
+                                        </li>
+                                    <?php } ?>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
