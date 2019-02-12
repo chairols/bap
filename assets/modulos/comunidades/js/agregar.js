@@ -2,6 +2,7 @@ $("#agregar").click(function () {
     datos = {
         'codigo': $("#codigo").val(),
         'comunidad': $("#comunidad").val(),
+        'pais': $("#pais").val(),
         'direccion': $("#direccion").val()
     };
     $.ajax({

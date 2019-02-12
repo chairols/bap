@@ -54,6 +54,7 @@ class Comunidades extends CI_Controller {
 
         $this->form_validation->set_rules('codigo', 'Código', 'required');
         $this->form_validation->set_rules('comunidad', 'Comunidad', 'required');
+        $this->form_validation->set_rules('pais', 'Pais', 'required|integer');
         $this->form_validation->set_rules('direccion', 'Dirección', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -76,6 +77,7 @@ class Comunidades extends CI_Controller {
             } else {
                 $datos = array(
                     'comunidad' => $this->input->post('comunidad'),
+                    'idpais' => $this->input->post('pais'),
                     'direccion' => $this->input->post('direccion'),
                     'codigo' => $this->input->post('codigo'),
                     'fecha_creacion' => date("Y-m-d H:i:s"),
@@ -140,11 +142,17 @@ class Comunidades extends CI_Controller {
          */
 
         $data['comunidades'] = $this->comunidades_model->gets_limit($comunidad, $pagina, $config['per_page'], 'A');
+        foreach($data['comunidades'] as $key => $value) {
+            $where = array(
+                'idpais' => $value['idpais']
+            );
+            $data['comunidades'][$key]['pais'] = $this->paises_model->get_where($where);
+        }
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
+        $this->load->view('layout_mpify/header', $data);
+        $this->load->view('layout_mpify/menu');
         $this->load->view('comunidades/listar');
-        $this->load->view('layout/footer');
+        $this->load->view('layout_mpify/footer');
     }
 
     private function generateRandomString($length = 10) {

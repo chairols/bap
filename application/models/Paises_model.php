@@ -49,6 +49,8 @@ class Paises_model extends CI_Model {
     }
     
     /*
+     *  Comunidades/listar
+     * 
      *  Paises/agregar_ajax
      */
     public function get_where($where) {

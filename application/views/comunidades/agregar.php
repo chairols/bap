@@ -18,9 +18,6 @@
         <div class="row clealfix">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="header">
-                        <h2>Bootstrap treeview</h2>
-                    </div>
                     <div class="body">
                         <div class="row clearfix">
                             <div class="col-lg-12">
