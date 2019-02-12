@@ -18,7 +18,7 @@ $("#agregar").click(function () {
                 $context = 'error';
                 $message = resultado['data'];
                 $position = 'toast-top-right';
-    
+
                 toastr.remove();
                 toastr[$context]($message, '', {
                     positionClass: $position
@@ -27,7 +27,7 @@ $("#agregar").click(function () {
                 $context = 'success';
                 $message = resultado['data'];
                 $position = 'toast-top-right';
-    
+
                 toastr.remove();
                 toastr[$context]($message, '', {
                     positionClass: $position
@@ -38,10 +38,13 @@ $("#agregar").click(function () {
             }
         },
         error: function (xhr) { // if error occured
-            $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText, 
-            {
-                type: 'danger',
-                allow_dismiss: false
+            $context = 'error';
+            $message = xhr.statusText;
+            $position = 'toast-top-right';
+
+            toastr.remove();
+            toastr[$context]($message, '', {
+                positionClass: $position
             });
         }
     });

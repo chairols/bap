@@ -80,10 +80,10 @@ class Paises extends CI_Controller {
             '/assets/modulos/paises/js/agregar.js'
         );
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
+        $this->load->view('layout_mpify/header', $data);
+        $this->load->view('layout_mpify/menu');
         $this->load->view('paises/agregar');
-        $this->load->view('layout/footer');
+        $this->load->view('layout_mpify/footer');
     }
 
     public function agregar_ajax() {
