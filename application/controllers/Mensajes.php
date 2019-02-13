@@ -55,10 +55,10 @@ class Mensajes extends CI_Controller {
         
         
         
-        $this->load->view('layout_mpify/header', $data);
-        $this->load->view('layout_mpify/menu');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
         $this->load->view('mensajes/crear');
-        $this->load->view('layout_mpify/footer');
+        $this->load->view('layout/footer');
     }
 }
 ?>

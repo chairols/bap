@@ -43,10 +43,10 @@ class Comunidades extends CI_Controller {
         
         $data['paises'] = $this->paises_model->gets();
 
-        $this->load->view('layout_mpify/header', $data);
-        $this->load->view('layout_mpify/menu');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
         $this->load->view('comunidades/agregar');
-        $this->load->view('layout_mpify/footer');
+        $this->load->view('layout/footer');
     }
 
     public function agregar_ajax() {
@@ -149,10 +149,10 @@ class Comunidades extends CI_Controller {
             $data['comunidades'][$key]['pais'] = $this->paises_model->get_where($where);
         }
 
-        $this->load->view('layout_mpify/header', $data);
-        $this->load->view('layout_mpify/menu');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
         $this->load->view('comunidades/listar');
-        $this->load->view('layout_mpify/footer');
+        $this->load->view('layout/footer');
     }
 
     private function generateRandomString($length = 10) {

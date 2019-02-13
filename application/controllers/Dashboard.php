@@ -22,10 +22,10 @@ class Dashboard extends CI_Controller {
         $data['javascript'] = array();
         
         
-        $this->load->view('layout_mpify/header', $data);
-        $this->load->view('layout_mpify/menu');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
         $this->load->view('dashboard/index');
-        $this->load->view('layout_mpify/footer');
+        $this->load->view('layout/footer');
     }
 
 }
