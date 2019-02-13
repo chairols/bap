@@ -5,7 +5,7 @@
 
             <div class="navbar-brand">
                 <a href="/">
-                    <img src="/assets/mplifyadmin/html/assets/images/logo-icon.svg" alt="Mplify Logo" class="img-responsive logo">
+                    <img src="/assets/mp/html/assets/images/logo-icon.svg" alt="Mplify Logo" class="img-responsive logo">
                     <span class="name">mplify</span>
                 </a>
             </div>
@@ -154,12 +154,12 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                                        <img class="rounded-circle" src="/assets/mplifyadmin/html/assets/images/user-small.png" width="30" alt="">
+                                        <img class="rounded-circle" src="/assets/mp/html/assets/images/user-small.png" width="30" alt="">
                                     </a>
                                     <div class="dropdown-menu animated flipInY user-profile">
                                         <div class="d-flex p-3 align-items-center">
                                             <div class="drop-left m-r-10">
-                                                <img src="/assets/mplifyadmin/html/assets/images/user-small.png" class="rounded" width="50" alt="">
+                                                <img src="/assets/mp/html/assets/images/user-small.png" class="rounded" width="50" alt="">
                                             </div>
                                             <div class="drop-right">
                                                 <h4>Samuel Morriss</h4>

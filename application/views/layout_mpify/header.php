@@ -11,20 +11,20 @@
 
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- VENDOR CSS -->
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/animate-css/animate.min.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/chartist/css/chartist.min.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/summernote/dist/summernote.css"/>
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/toastr/toastr.min.css" />
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/nestable/jquery-nestable.css" />
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/animate-css/animate.min.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/chartist/css/chartist.min.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/summernote/dist/summernote.css"/>
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/toastr/toastr.min.css" />
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/nestable/jquery-nestable.css" />
 
         <!-- MAIN CSS -->
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/light/assets/css/main.css">
-        <link rel="stylesheet" href="/assets/mplifyadmin/html/light/assets/css/color_skins.css">
+        <link rel="stylesheet" href="/assets/mp/html/light/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/mp/html/light/assets/css/color_skins.css">
     </head>
 
 
@@ -44,7 +44,7 @@
         <!-- Page Loader -->
         <div class="page-loader-wrapper">
             <div class="loader">
-                <div class="m-t-30"><img src="/assets/mplifyadmin/html/assets/images/thumbnail.png" width="48" height="48" alt="Mplify"></div>
+                <div class="m-t-30"><img src="/assets/mp/html/assets/images/thumbnail.png" width="48" height="48" alt="Mplify"></div>
                 <p>Cargando...</p>        
             </div>
         </div>
