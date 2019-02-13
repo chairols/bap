@@ -61,6 +61,9 @@ class Usuarios extends CI_Controller {
         redirect('/usuarios/login/', 'refresh');
     }
 
+    public function registrar() {
+        $this->load->view('usuarios/registrar');
+    }
 }
 
 ?>
