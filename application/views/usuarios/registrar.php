@@ -82,8 +82,11 @@
     </body>
 </html>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCuMB_Fpcn6USQEoumEHZB_s31XSQeKQc0&sensor=false&libraries=places&language=en-AU"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpV0i7qtPuBfiMn2v0CpWMFkpKnmXP2I&sensor=false&libraries=places&language=es-AR"></script>
+
+
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuMB_Fpcn6USQEoumEHZB_s31XSQeKQc0&libraries=places&language=es-AR" async defer ></script>-->
 <script>
     var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 
