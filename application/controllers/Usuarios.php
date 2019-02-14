@@ -8,7 +8,8 @@ class Usuarios extends CI_Controller {
         parent::__construct();
         $this->load->library(array(
             'form_validation',
-            'session'
+            'session',
+            'recaptcha'
         ));
         $this->load->model(array(
             'usuarios_model'
@@ -62,8 +63,54 @@ class Usuarios extends CI_Controller {
     }
 
     public function registrar() {
-        $this->load->view('usuarios/registrar');
+
+        $recaptcha = $this->input->post('g-recaptcha-response');
+        if (!empty($recaptcha)) {
+            $response = $this->recaptcha->verifyResponse($recaptcha);
+            if (isset($response['success']) and $response['success'] === true) {
+                echo "You got it!";
+            }
+        }
+        $data = array(
+            'widget' => $this->recaptcha->getWidget(),
+            'script' => $this->recaptcha->getScriptTag(),
+        );
+        $this->load->view('usuarios/registrar', $data);
     }
+
+    public function registrar_ajax() {
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('place_id', 'Dirección', 'required');
+        $this->form_validation->set_rules('password', 'Contraseña', 'required');
+
+        $captcha_answer = $this->input->post('g-recaptcha-response');
+
+        $response = $this->recaptcha->verifyResponse($captcha_answer);
+
+        if ($response['success']) {
+            if ($this->form_validation->run() == FALSE) {
+                $json = array(
+                    'status' => 'error',
+                    'data' => validation_errors()
+                );
+                echo json_encode($json);
+            } else {
+
+                $json = array(
+                    'status' => 'ok',
+                    'data' => 'CORRECTO'
+                );
+                echo json_encode($json);
+            }
+        } else {
+            $json = array(
+                'status' => 'error',
+                'data' => 'Debe verificar Captcha'
+            );
+            echo json_encode($json);
+        }
+    }
+
 }
 
 ?>

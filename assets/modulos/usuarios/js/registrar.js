@@ -15,7 +15,8 @@ $("#registrarse").click(function() {
     datos = {
         'email': $("#email").val(),
         'place_id': $("#place_id").val(),
-        'password': $("#password").val()
+        'password': $("#password").val(),
+        'g-recaptcha-response':grecaptcha.getResponse()
     };
     $.ajax({
         type: 'POST',

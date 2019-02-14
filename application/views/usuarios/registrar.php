@@ -64,6 +64,10 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="password" placeholder="Contraseña">
                                         </div>
+                                        <div class="form-group">
+                                            <?php echo $widget; ?>
+                                            <?php echo $script; ?>
+                                        </div>
                                         <input type="hidden" id="place_id" value="">
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse">Registrarse</button>
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse_loading" style="display: none">
