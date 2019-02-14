@@ -36,6 +36,8 @@
                                 </a>
                             </div>
                             <div class="left-slider">
+                                <!-- Acá iría el mapa -->
+                                <div id="map"></div>
                                 <img src="/assets/mp/html/assets/images/login/1.jpg" class="img-fluid" alt="">
                             </div>
                         </div>
@@ -56,10 +58,10 @@
                                 <div class="body">
                                     <form class="form-auth-small">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Ingrese Email">
+                                            <input type="text" id="address" class="form-control" placeholder="Ingrese Dirección">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" id="address" class="form-control" placeholder="Ingrese Dirección">
+                                            <input type="email" class="form-control" id="email" placeholder="Ingrese Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="password" placeholder="Contraseña">

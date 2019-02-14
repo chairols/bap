@@ -1,22 +1,39 @@
-var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 
+
+var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
     var place = autocomplete.getPlace();
     console.log(place.address_components);
     console.log(place);
     $("#place_id").val(place.place_id);
+
+    set_map(place.place_id);
 });
 
-$("#registrarse").click(function() {
-    if($("#address").val() === "") {
+function set_map(place_id) {
+    function initMap() {
+        // The location of Uluru
+        var uluru = {lat: -25.344, lng: 131.036};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+
+
+}
+
+$("#registrarse").click(function () {
+    if ($("#address").val() === "") {
         $("#place_id").val("");
     }
-    
+
     datos = {
         'email': $("#email").val(),
         'place_id': $("#place_id").val(),
         'password': $("#password").val(),
-        'g-recaptcha-response':grecaptcha.getResponse()
+        'g-recaptcha-response': grecaptcha.getResponse()
     };
     $.ajax({
         type: 'POST',

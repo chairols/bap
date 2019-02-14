@@ -26,6 +26,33 @@ class Variables_model extends CI_Model {
         return $this->db->insert_id();
     }
 
+    /*
+     *  Variables/listar
+     */
+    public function get_cantidad_pendientes($variable) {
+        $query = $this->db->query("SELECT COUNT(*) as cantidad
+                                    FROM
+                                        variables
+                                    WHERE
+                                        variable LIKE '%$variable%'");
+        
+        return $query->row_array();
+    }
+    
+    /*
+     *  Variables/listar
+     */
+    public function gets_where_variable_limit($variable, $pagina, $cantidad_por_pagina) {
+        $query = $this->db->query("SELECT *
+                                    FROM
+                                        variables
+                                    WHERE
+                                        variable LIKE '%$variable%'
+                                    ORDER BY
+                                        variable
+                                    LIMIT $pagina, $cantidad_por_pagina");
+        return $query->result_array();
+    }
 }
 
 ?>
