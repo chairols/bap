@@ -18,8 +18,8 @@ $("#actualizar_mapa").click(function () {
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: {lat: -33, lng: 151},
+        zoom: 11,
+        center: {lat: -34.6157437, lng: -58.43338},
         disableDefaultUI: true
     });
 }
@@ -32,7 +32,8 @@ function updateMap(lat, lon) {
     
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: myLatLng
+        center: myLatLng,
+        disableDefaultUI: true
     });
 
     var marker = new google.maps.Marker({
