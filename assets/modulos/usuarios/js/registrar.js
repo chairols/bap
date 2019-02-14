@@ -1,4 +1,9 @@
-
+$(document).ready(function() {
+    $("#lat").val("-34.6157437");
+    $("#lon").val("-58.43338");
+    //$("#actualizar_mapa").click();
+    initMap();
+});
 var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
     var place = autocomplete.getPlace();
@@ -15,12 +20,22 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
 $("#actualizar_mapa").click(function () {
     updateMap($("#lat").val(), $("#lon").val());
 });
-
+/*
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 11,
         center: {lat: -34.6157437, lng: -58.43338},
         disableDefaultUI: true
+    });
+}
+*/
+
+function initMap() {
+    var myLatLng = {lat: parseFloat($("#lat").val()), lng: parseFloat($("#lon").val())};
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        center: myLatLng
     });
 }
 
@@ -32,7 +47,8 @@ function updateMap(lat, lon) {
     
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: myLatLng
+        center: myLatLng,
+        disableDefaultUI: true
     });
 
     var marker = new google.maps.Marker({

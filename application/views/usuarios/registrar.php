@@ -102,9 +102,9 @@
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?=$google_maps_api_key?>&sensor=false&libraries=places&language=es-AR"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?=$google_maps_api_key?>&sensor=false&libraries=places&language=es-AR&callback=initMap"></script>
 <script src="/assets/mp/html/assets/vendor/toastr/toastr.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?=$google_maps_api_key?>&callback=initMap">
+<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?=$google_maps_api_key?>&callback=initMap">-->
     </script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuMB_Fpcn6USQEoumEHZB_s31XSQeKQc0&libraries=places&language=es-AR" async defer ></script>-->
 
