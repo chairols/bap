@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/assets/mp/html/assets/vendor/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/mp/html/assets/vendor/animate-css/animate.min.css">
         <link rel="stylesheet" href="/assets/mp/html/assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/mp/html/assets/vendor/toastr/toastr.min.css" />
 
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="/assets/mp/html/light/assets/css/main.css">
@@ -55,15 +56,19 @@
                                 <div class="body">
                                     <form class="form-auth-small">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="signup-email" placeholder="Ingrese Email">
+                                            <input type="email" class="form-control" id="email" placeholder="Ingrese Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" id="address" class="form-control" placeholder="Ingrese Dirección">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="signup-password" placeholder="Contraseña">
+                                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Registrarse</button>
+                                        <input type="hidden" id="place_id" value="">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse">Registrarse</button>
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse_loading" style="display: none">
+                                            <i class="fa fa-refresh fa-spin"></i>
+                                        </button>
                                         <div class="bottom">
                                             <span class="helper-text">¿Ya tiene una cuenta? <a href="/usuarios/login/">Ingrese Aquí</a></span>
                                         </div>
@@ -84,14 +89,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpV0i7qtPuBfiMn2v0CpWMFkpKnmXP2I&sensor=false&libraries=places&language=es-AR"></script>
-
+<script src="/assets/mp/html/assets/vendor/toastr/toastr.js"></script>
 
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuMB_Fpcn6USQEoumEHZB_s31XSQeKQc0&libraries=places&language=es-AR" async defer ></script>-->
-<script>
-    var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 
-    google.maps.event.addListener(autocomplete, 'place_changed', function () {
-        var place = autocomplete.getPlace();
-        console.log(place.address_components);
-    });
-</script> 
+<script type="text/javascript" src="/assets/modulos/usuarios/js/registrar.js"></script>
+
+
