@@ -21,8 +21,8 @@
                     <div class="body">
                         <div class="row clealfix">
                             <div class="col-lg-12">
-                                <p><b>Key</b></p>
-                                <input class="form-control" maxlength="255" type="text" id="key" placeholder="key" autofocus="">
+                                <p><b>Variable</b></p>
+                                <input class="form-control" maxlength="255" type="text" id="variable" placeholder="Variable" autofocus="">
                             </div>
                         </div>
                         <div class="row clearfix m-t-15">

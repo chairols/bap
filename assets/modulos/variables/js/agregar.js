@@ -1,13 +1,12 @@
 $("#agregar").click(function () {
     datos = {
-        'codigo': $("#codigo").val(),
-        'comunidad': $("#comunidad").val(),
-        'pais': $("#pais").val(),
-        'direccion': $("#direccion").val()
+        'variable': $("#variable").val(),
+        'valor': $("#valor").val(),
+        'comentarios': $("#comentarios").val()
     };
     $.ajax({
         type: 'POST',
-        url: '/comunidades/agregar_ajax/',
+        url: '/variables/agregar_ajax/',
         data: datos,
         beforeSend: function () {
             $("#agregar").hide();
@@ -20,7 +19,6 @@ $("#agregar").click(function () {
                 $message = resultado['data'];
                 $position = 'toast-top-right';
 
-                //toastr.remove();
                 toastr[$context]($message, '', {
                     positionClass: $position
                 });
@@ -29,13 +27,13 @@ $("#agregar").click(function () {
                 $message = resultado['data'];
                 $position = 'toast-top-right';
 
-                //toastr.remove();
                 toastr[$context]($message, '', {
                     positionClass: $position
                 });
-                document.getElementById("codigo").value = "";
-                document.getElementById("comunidad").value = "";
-                document.getElementById("direccion").value = "";
+                $("#variable").val("");
+                $("#valor").val("");
+                $("#comentarios").val("");
+                $("#variable").focus();
             }
             $("#loading").hide();
             $("#agregar").show();
@@ -45,7 +43,6 @@ $("#agregar").click(function () {
             $message = xhr.statusText;
             $position = 'toast-top-right';
 
-            //toastr.remove();
             toastr[$context]($message, '', {
                 positionClass: $position
             });
