@@ -1,4 +1,4 @@
-
+var map;
 
 var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -10,19 +10,15 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
     set_map(place.place_id);
 });
 
-function set_map(place_id) {
-    function initMap() {
-        // The location of Uluru
-        var uluru = {lat: -25.344, lng: 131.036};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 4, center: uluru});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: uluru, map: map});
-    }
-
-
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: {lat: -33, lng: 151},
+    disableDefaultUI: true
+  });
 }
+
+
 
 $("#registrarse").click(function () {
     if ($("#address").val() === "") {

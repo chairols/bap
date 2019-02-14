@@ -19,6 +19,13 @@
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="/assets/mp/html/light/assets/css/main.css">
         <link rel="stylesheet" href="/assets/mp/html/light/assets/css/color_skins.css">
+        <style>
+            /* Set the size of the div element that contains the map */
+            #map {
+                height: 100%;  /* The height is 400 pixels */
+                width: 100%;  /* The width is the width of the web page */
+            }
+        </style>
     </head>
 
     <body class="theme-blue">
@@ -37,8 +44,9 @@
                             </div>
                             <div class="left-slider">
                                 <!-- Acá iría el mapa -->
+                                <!--<iframe src="https://www.google.com/maps/embed?pb=Armenia+2121,+C1425FBC+CABA/@-34.5868451,-58.425443,17z/data=!3m1!4b1!4m5!3m4!1s0x95bcb586d453d2a5:0xfeb18dbe8712a8e8!8m2!3d-34.5868451!4d-58.4232543" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>-->
                                 <div id="map"></div>
-                                <img src="/assets/mp/html/assets/images/login/1.jpg" class="img-fluid" alt="">
+                                <!--<img src="/assets/mp/html/assets/images/login/1.jpg" class="img-fluid" alt="">-->
                             </div>
                         </div>
 
@@ -93,9 +101,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpV0i7qtPuBfiMn2v0CpWMFkpKnmXP2I&sensor=false&libraries=places&language=es-AR"></script>
 <script src="/assets/mp/html/assets/vendor/toastr/toastr.js"></script>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpV0i7qtPuBfiMn2v0CpWMFkpKnmXP2I&callback=initMap">
+    </script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuMB_Fpcn6USQEoumEHZB_s31XSQeKQc0&libraries=places&language=es-AR" async defer ></script>-->
 
 <script type="text/javascript" src="/assets/modulos/usuarios/js/registrar.js"></script>
 
 
+<script type=""
