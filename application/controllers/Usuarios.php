@@ -95,7 +95,23 @@ class Usuarios extends CI_Controller {
                 );
                 echo json_encode($json);
             } else {
-
+                /*
+                 *  Comprobar si existe 
+                 *  
+                 *  Si existe - Se solicita al administrador unirse
+                 * 
+                 *  Si no existe la crea
+                 */
+                $where = array(
+                    'place_id' => $this->input->post('place_id')
+                );
+                $comunidad = $this->comunidades_model->get_where($where);
+                
+                if($comunidad) { // Si existe la comunidad
+                    
+                } else {  // Si no existe la comunidad
+                    
+                }
                 $json = array(
                     'status' => 'ok',
                     'data' => 'CORRECTO'
