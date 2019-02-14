@@ -11,13 +11,13 @@
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- VENDOR CSS -->
-<link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/animate-css/animate.min.css">
-<link rel="stylesheet" href="/assets/mplifyadmin/html/assets/vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/mp/html/assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/mp/html/assets/vendor/animate-css/animate.min.css">
+<link rel="stylesheet" href="/assets/mp/html/assets/vendor/font-awesome/css/font-awesome.min.css">
 
 <!-- MAIN CSS -->
-<link rel="stylesheet" href="/assets/mplifyadmin/html/light/assets/css/main.css">
-<link rel="stylesheet" href="/assets/mplifyadmin/html/light/assets/css/color_skins.css">
+<link rel="stylesheet" href="/assets/mp/html/light/assets/css/main.css">
+<link rel="stylesheet" href="/assets/mp/html/light/assets/css/color_skins.css">
 </head>
 
 <body class="theme-blue">
@@ -26,16 +26,16 @@
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle auth-main">
 				<div class="auth-box">
-                                    <div class="mobile-logo"><a href="index.html"><img src="/assets/mplifyadmin/html/assets/images/logo-icon.svg" alt="Mplify"></a></div>
+                                    <div class="mobile-logo"><a href="index.html"><img src="/assets/mp/html/assets/images/logo-icon.svg" alt="Mplify"></a></div>
                     <div class="auth-left">
                         <div class="left-top">
                             <a href="index.html">
-                                <img src="/assets/mplifyadmin/html/assets/images/logo-icon.svg" alt="Mplify">
+                                <img src="/assets/mp/html/assets/images/logo-icon.svg" alt="Mplify">
                                 <span>Mplify</span>
                             </a>
                         </div>
                         <div class="left-slider">
-                            <img src="/assets/mplifyadmin/html/assets/images/login/1.jpg" class="img-fluid" alt="">
+                            <img src="/assets/mp/html/assets/images/login/1.jpg" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div class="auth-right">
