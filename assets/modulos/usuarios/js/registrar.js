@@ -1,4 +1,3 @@
-var map;
 
 var autocomplete = new google.maps.places.Autocomplete($("#address")[0], {});
 google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -7,18 +6,42 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
     console.log(place);
     $("#place_id").val(place.place_id);
 
-    set_map(place.place_id);
+    $("#lat").val(place.geometry.location.lat());
+    $("#lon").val(place.geometry.location.lng());
+    $("#actualizar_mapa").click();
+
+});
+
+$("#actualizar_mapa").click(function () {
+    updateMap($("#lat").val(), $("#lon").val());
 });
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: {lat: -33, lng: 151},
-    disableDefaultUI: true
-  });
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: {lat: -33, lng: 151},
+        disableDefaultUI: true
+    });
 }
 
+function updateMap(lat, lon) {
 
+    //var myLatLng = {lat: -25.363, lng: 131.044};
+    var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+    //var myLatLng = {lat: -34.5868451, lng: -58.425443};
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+    });
+
+}
 
 $("#registrarse").click(function () {
     if ($("#address").val() === "") {

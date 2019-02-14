@@ -79,6 +79,9 @@
                                             <?php echo $script; ?>
                                         </div>
                                         <input type="hidden" id="place_id" value="">
+                                        <input type="hidden" id="lat">
+                                        <input type="hidden" id="lon">
+                                        <input type="hidden" id="actualizar_mapa">
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse">Registrarse</button>
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse_loading" style="display: none">
                                             <i class="fa fa-refresh fa-spin"></i>
@@ -99,13 +102,11 @@
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpV0i7qtPuBfiMn2v0CpWMFkpKnmXP2I&sensor=false&libraries=places&language=es-AR"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?=$google_maps_api_key?>&sensor=false&libraries=places&language=es-AR"></script>
 <script src="/assets/mp/html/assets/vendor/toastr/toastr.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpV0i7qtPuBfiMn2v0CpWMFkpKnmXP2I&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?=$google_maps_api_key?>&callback=initMap">
     </script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuMB_Fpcn6USQEoumEHZB_s31XSQeKQc0&libraries=places&language=es-AR" async defer ></script>-->
 
 <script type="text/javascript" src="/assets/modulos/usuarios/js/registrar.js"></script>
 
-
-<script type=""

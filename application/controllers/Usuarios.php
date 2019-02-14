@@ -12,7 +12,8 @@ class Usuarios extends CI_Controller {
             'recaptcha'
         ));
         $this->load->model(array(
-            'usuarios_model'
+            'usuarios_model',
+            'variables_model'
         ));
     }
 
@@ -63,7 +64,8 @@ class Usuarios extends CI_Controller {
     }
 
     public function registrar() {
-
+        
+                
         $recaptcha = $this->input->post('g-recaptcha-response');
         if (!empty($recaptcha)) {
             $response = $this->recaptcha->verifyResponse($recaptcha);
@@ -75,6 +77,13 @@ class Usuarios extends CI_Controller {
             'widget' => $this->recaptcha->getWidget(),
             'script' => $this->recaptcha->getScriptTag(),
         );
+        
+        $where = array(
+            'variable' => 'google_maps_api_key'
+        );
+        $variable = $this->variables_model->get_where($where);
+        $data['google_maps_api_key'] = $variable['valor'];
+        
         $this->load->view('usuarios/registrar', $data);
     }
 
