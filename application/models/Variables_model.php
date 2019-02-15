@@ -10,6 +10,7 @@ class Variables_model extends CI_Model {
 
     /*
      *  Variables/agregar_ajax
+     *  Variables/modificar
      */
 
     public function get_where($where) {
@@ -52,6 +53,14 @@ class Variables_model extends CI_Model {
                                         variable
                                     LIMIT $pagina, $cantidad_por_pagina");
         return $query->result_array();
+    }
+    
+    /*
+     *  Variables/modificar_ajax
+     */
+    public function update($datos, $where) {
+        $this->db->update('variables', $datos, $where);
+        return $this->db->affected_rows();
     }
 }
 

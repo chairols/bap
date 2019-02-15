@@ -18,7 +18,7 @@ class Variables extends CI_Controller {
     }
 
     public function agregar() {
-        $data['title'] = 'Agregar Comunidad';
+        $data['title'] = 'Agregar Variable de Sistema';
         $data['session'] = $this->session->all_userdata();
         $data['menu'] = $this->r_session->get_menu();
         $data['javascript'] = array(
@@ -132,6 +132,64 @@ class Variables extends CI_Controller {
         $this->load->view('layout/menu');
         $this->load->view('variables/listar');
         $this->load->view('layout/footer');
+    }
+    
+    public function modificar($variable = null) {
+        if($variable == null) {
+            redirect('/variables/listar/', 'refresh');
+        }
+        $data['title'] = 'Modificar Variable de Sistema';
+        $data['session'] = $this->session->all_userdata();
+        $data['menu'] = $this->r_session->get_menu();
+        $data['javascript'] = array(
+            '/assets/modulos/variables/js/modificar.js'
+        );
+
+        $where = array(
+            'variable' => $variable
+        );
+        $data['variable'] = $this->variables_model->get_where($where);
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/menu');
+        $this->load->view('variables/modificar');
+        $this->load->view('layout/footer');
+    }
+    
+    public function modificar_ajax() {
+        $this->form_validation->set_rules('variable', 'Variable', 'required');
+        $this->form_validation->set_rules('valor', 'Valor', 'required');
+        
+        if ($this->form_validation->run() == FALSE) {
+            $json = array(
+                'status' => 'error',
+                'data' => validation_errors()
+            );
+            echo json_encode($json);
+        } else {
+            $datos = array(
+                'valor' => $this->input->post('valor'),
+                'comentarios' => $this->input->post('comentarios')
+            );
+            $where = array(
+                'variable' => $this->input->post('variable')
+            );
+            $resultado = $this->variables_model->update($datos, $where);
+            
+            if ($resultado) {
+                $json = array(
+                    'status' => 'ok',
+                    'data' => 'La variable '.$this->input->post('variable').' se actualizó correctamente'
+                );
+                echo json_encode($json);
+            } else {
+                $json = array(
+                    'status' => 'error',
+                    'data' => 'No se pudo actualizar la variable '.$this->input->post('variable')
+                );
+                echo json_encode($json);
+            }
+        }
     }
 }
 

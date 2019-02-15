@@ -22,24 +22,24 @@
                         <div class="row clealfix">
                             <div class="col-lg-12">
                                 <p><b>Variable</b></p>
-                                <input class="form-control" maxlength="255" type="text" id="variable" placeholder="Variable" autofocus="">
+                                <input class="form-control" maxlength="255" type="text" id="variable" placeholder="Variable" value="<?=$variable['variable']?>" disabled="">
                             </div>
                         </div>
                         <div class="row clearfix m-t-15">
                             <div class="col-lg-12">
                                 <p><b>Valor</b></p>
-                                <input class="form-control" maxlength="255" type="text" id="valor" placeholder="Valor">
+                                <input class="form-control" maxlength="255" type="text" id="valor" placeholder="Valor" value="<?=$variable['valor']?>">
                             </div>
                         </div>
                         <div class="row clearfix m-t-20">
                             <div class="col-lg-12">
                                 <p><b>Comentarios</b></p>
-                                <textarea class="form-control" id="comentarios" rows="8"></textarea>
+                                <textarea class="form-control" id="comentarios" rows="8"><?=$variable['comentarios']?></textarea>
                             </div>
                         </div>
                         <div class="row clearfix m-t-20">
                             <div class="col-lg-12">
-                                <button type="button" id="agregar" class="btn btn-primary">Agregar</button>
+                                <button type="button" id="modificar" class="btn btn-primary">Modificar</button>
                                 <button type="button" id="loading" class="btn btn-primary" style="display: none;">
                                     <i class="fa fa-refresh fa-spin"></i>
                                 </button>
