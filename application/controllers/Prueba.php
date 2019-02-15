@@ -8,34 +8,97 @@ class Prueba extends CI_Controller {
         parent::__construct();
         $this->load->library(array(
             'session',
-            'r_session'
+            'r_session',
+            'email'
+        ));
+        $this->load->model(array(
+            'variables_model'
         ));
     }
     
-    public function chat() {
-        $data['title'] = 'Dashboard';
-        $data['session'] = $this->session->all_userdata();
-        $data['menu'] = $this->r_session->get_menu();
-        $data['javascript'] = array(
-            '/assets/modulos/prueba/js/chat.js'
-        );  
+    public function email() {
+        $where = array(
+            'variable' => 'nombre_sistema'
+        );
+        $nombre_sistema = $this->variables_model->get_where($where);
         
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
-        $this->load->view('prueba/chat');
-        $this->load->view('layout/footer');
+        $where = array(
+            'variable' => 'noreply_email'
+        );
+        $email = $this->variables_model->get_where($where);
+        
+        $where = array(
+            'variable' => 'noreply_email_password'
+        );
+        $email_password = $this->variables_model->get_where($where);
+        
+        
+        $subject = 'Bienvenido a '.$nombre_sistema['valor'];
+        
+        $message = '<p>Adjunto se encuentra nueva retención.</p>';
+
+// Get full html:
+        $body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=' . strtolower(config_item('charset')) . '" />
+    <title>' . html_escape($subject) . '</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+    </style>
+    <img src="'.base_url().'extranet/confirmar_retencion_email/">
+</head>
+<body>
+' . $message . ' <br>
+    <img style="display: none" width="1px" height="1px" src="'.base_url().'extranet/confirmar_retencion_email/">
+</body>
+</html>';
+// Also, for getting full html you may use the following internal method:
+//$body = $this->email->full_html($subject, $message);
+        
+        $result = $this->email
+                ->from('ventas@rollerservice.com.ar', 'Roller Service S.A.')
+                ->reply_to('ventas@rollerservice.com.ar')    // Optional, an account where a human being reads.
+                ->to('hernanbalboa@gmail.com')
+                //->to($this->input->post('email'))
+                ->subject($subject)
+                //->attach(base_url().'retenciones/pdf/'.$this->input->post('idretencion').'/', '', 'Nuevo Nombre.pdf')
+                //->attach(base_url().'extranet/retencion/'.$this->input->post('idretencion').'/')
+                ->message($body)
+                ->send();
+        
+        /*var_dump($this->generar_hash_retencion_para_extranet($this->input->post('idretencion')));
+        var_dump($result);
+        */
+        if($result) {
+            $datos = array(
+                'estado_mail' => 'E'
+            );
+            $where = array(
+                'idretencion' => $this->input->post('idretencion')
+            );
+            $this->retenciones_model->update($datos, $where);
+            
+            $json = array(
+                'status' => 'ok',
+                'data' => 'El correo se envió satisfactoriamente'
+            );
+            echo json_encode($json);
+        } else {
+            $json = array(
+                'status' => 'error',
+                'data' => 'Ocurrió el siguiente error: <br>'.$this->email->print_debugger()
+            );
+            echo json_encode($json);
+        }
+        /*echo '<br />';
+        echo $this->email->print_debugger();
+        */
+        exit;
     }
     
-    public function oreo() {
-        $data['title'] = 'Prueba del Template Oreo';
-        $data['session'] = $this->session->all_userdata();
-        $data['menu'] = $this->r_session->get_menu();
-        $data['javascript'] = array(); 
-        
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/menu');
-        $this->load->view('prueba/oreo');
-        $this->load->view('layout/footer');
-    }
 }
 ?>
