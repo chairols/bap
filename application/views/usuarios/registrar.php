@@ -61,7 +61,7 @@
 
                             <div class="card">
                                 <div class="header">
-                                    <p class="lead">Create an account</p>
+                                    <p class="lead">Se parte de la Comunidad ¡Regístrate!</p>
                                 </div>
                                 <div class="body">
                                     <form class="form-auth-small">
