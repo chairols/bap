@@ -6,7 +6,7 @@
             <div class="navbar-brand">
                 <a href="/">
                     <img src="/assets/mp/html/assets/images/logo-icon.svg" alt="Mplify Logo" class="img-responsive logo">
-                    <span class="name">mplify</span>
+                    <span class="name">URBEAS</span>
                 </a>
             </div>
 

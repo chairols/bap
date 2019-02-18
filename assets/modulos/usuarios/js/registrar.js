@@ -112,6 +112,8 @@ $("#registrarse").click(function () {
             toastr[$context]($message, '', {
                 positionClass: $position
             });
+            
+            grecaptcha.reset();
             $("#registrarse_loading").hide();
             $("#registrarse").show();
         }

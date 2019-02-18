@@ -39,7 +39,7 @@
                             <div class="left-top">
                                 <a href="index.html">
                                     <img src="/assets/mp/html/assets/images/logo-icon.svg" alt="Mplify">
-                                    <span>Mplify</span>
+                                    <span>URBEAS</span>
                                 </a>
                             </div>
                             <div class="left-slider">
