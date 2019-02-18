@@ -38,7 +38,7 @@
                         <div class="auth-left">
                             <div class="left-top">
                                 <a href="index.html">
-                                    <img src="/assets/mp/html/assets/images/logo-icon.svg" alt="Mplify">
+                                    <img src="/assets/mp/html/assets/images/logo-icon.svg" alt="URBEAS">
                                     <span>URBEAS</span>
                                 </a>
                             </div>
