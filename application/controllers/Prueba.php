@@ -35,7 +35,7 @@ class Prueba extends CI_Controller {
         
         $subject = 'Bienvenido a '.$nombre_sistema['valor'];
         
-        $message = '<p>Adjunto se encuentra nueva retención.</p>';
+        $message = '<p>Les Diputades Indecises.</p>';
 
 // Get full html:
         $body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -52,8 +52,7 @@ class Prueba extends CI_Controller {
     <img src="'.base_url().'extranet/confirmar_retencion_email/">
 </head>
 <body>
-' . $message . ' <br>
-    <img style="display: none" width="1px" height="1px" src="'.base_url().'extranet/confirmar_retencion_email/">
+' . $message . '
 </body>
 </html>';
 // Also, for getting full html you may use the following internal method:
