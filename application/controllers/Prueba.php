@@ -49,7 +49,6 @@ class Prueba extends CI_Controller {
             font-size: 16px;
         }
     </style>
-    <img src="'.base_url().'extranet/confirmar_retencion_email/">
 </head>
 <body>
 ' . $message . '
