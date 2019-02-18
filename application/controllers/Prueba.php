@@ -60,8 +60,8 @@ class Prueba extends CI_Controller {
 //$body = $this->email->full_html($subject, $message);
         
         $result = $this->email
-                ->from('ventas@rollerservice.com.ar', 'Roller Service S.A.')
-                ->reply_to('ventas@rollerservice.com.ar')    // Optional, an account where a human being reads.
+                ->from($email['valor'], $nombre_sistema['valor'])
+                //->reply_to('ventas@rollerservice.com.ar')    // Optional, an account where a human being reads.
                 ->to('hernanbalboa@gmail.com')
                 //->to($this->input->post('email'))
                 ->subject($subject)
@@ -70,33 +70,7 @@ class Prueba extends CI_Controller {
                 ->message($body)
                 ->send();
         
-        /*var_dump($this->generar_hash_retencion_para_extranet($this->input->post('idretencion')));
-        var_dump($result);
-        */
-        if($result) {
-            $datos = array(
-                'estado_mail' => 'E'
-            );
-            $where = array(
-                'idretencion' => $this->input->post('idretencion')
-            );
-            $this->retenciones_model->update($datos, $where);
-            
-            $json = array(
-                'status' => 'ok',
-                'data' => 'El correo se envió satisfactoriamente'
-            );
-            echo json_encode($json);
-        } else {
-            $json = array(
-                'status' => 'error',
-                'data' => 'Ocurrió el siguiente error: <br>'.$this->email->print_debugger()
-            );
-            echo json_encode($json);
-        }
-        /*echo '<br />';
-        echo $this->email->print_debugger();
-        */
+       
         exit;
     }
     
