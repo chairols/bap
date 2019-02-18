@@ -54,16 +54,16 @@
                                 <form class="form-auth-small" method="POST">
                                     <div class="form-group">
                                         <label for="signin-email" class="control-label sr-only">Usuario</label>
-                                        <input type="text" class="form-control" id="signin-email" name="usuario" value="" placeholder="Usuario" autofocus="">
+                                        <input type="text" class="form-control" id="signin-email" name="usuario" value="<?=(isset($_COOKIE['login_usuario']))?$_COOKIE['login_usuario']:""?>" placeholder="Usuario" autofocus="">
                                     </div>
                                     <div class="form-group">
                                         <label for="signin-password" class="control-label sr-only">Password</label>
-                                        <input type="password" class="form-control" id="signin-password" name="password" value="" placeholder="Password">
+                                        <input type="password" class="form-control" id="signin-password" name="password" value="<?=(isset($_COOKIE['login_password']))?$_COOKIE['login_password']:""?>" placeholder="Password">
                                     </div>
                                     <div class="form-group clearfix">
                                         <label class="fancy-checkbox element-left">
-                                            <input type="checkbox">
-                                            <span>Remember me</span>
+                                            <input type="checkbox" name="remember" id="remember"<?=(isset($_COOKIE['login_usuario']) && isset($_COOKIE['login_password']))?" checked":""?>>
+                                            <span>Recordarme</span>
                                         </label>								
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>

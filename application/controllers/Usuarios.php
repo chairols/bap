@@ -44,11 +44,21 @@ class Usuarios extends CI_Controller {
                     'ultimo_acceso' => date("Y-m-d H:i:s")
                 );
                 $this->usuarios_model->update($datos, $usuario['idusuario']);
+                
+                if(!empty($this->input->post('remember'))) {
+                    setcookie("login_usuario", $this->input->post('usuario'), time() + (10 * 365 * 24 * 60 * 60));
+                    setcookie("login_password", $this->input->post('password'), time() + (10 * 365 * 24 * 60 * 60));
+                } else {
+                    setcookie("login_usuario", "", time() - 100);
+                    setcookie("login_password", "", time() - 100);
+                }
 
                 redirect('/dashboard/', 'refresh');
             }
         }
-
+        
+        $data['post'] = $this->input->post();
+        
         $data['title'] = "Login de Usuarios";
         $session = $this->session->all_userdata();
         if (!empty($session['SID'])) {
