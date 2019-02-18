@@ -7,7 +7,7 @@
  * @license The MIT License (MIT), http://opensource.org/licenses/MIT
  * @link https://github.com/ivantcholakov/codeigniter-phpmailer
  *
- * This class is intended to be compatible with CI 3.0.x.
+ * This class is intended to be compatible with CI 3.1.x and PHPMailer 6.0.x.
  */
 
 class MY_Email extends CI_Email {
@@ -66,7 +66,7 @@ class MY_Email extends CI_Email {
 
     // The Constructor ---------------------------------------------------------
 
-    public function __construct($config = array()) {
+    public function __construct(array $config = array()) {
 
         $this->CI = get_instance();
         $this->CI->load->helper('email');
@@ -74,10 +74,6 @@ class MY_Email extends CI_Email {
 
         // Set the default property 'debug_output' by using CLI autodetection.
         self::$default_properties['debug_output'] = (strpos(PHP_SAPI, 'cli') !== false OR defined('STDIN')) ? 'echo' : 'html';
-
-        if (!is_array($config)) {
-            $config = array();
-        }
 
         // Wipe out certain properties that are declared within the parent class.
         // These properties would be accessed by magic.
@@ -139,7 +135,7 @@ class MY_Email extends CI_Email {
         if (array_key_exists($name, $this->properties)) {
             return $this->properties[$name];
         } else {
-            throw new OutOfBoundsException('The property '.$name.' does not exists.');
+            throw new \OutOfBoundsException('The property '.$name.' does not exists.');
         }
     }
 
@@ -176,11 +172,7 @@ class MY_Email extends CI_Email {
 
     // Initialization & Clearing -----------------------------------------------
 
-    public function initialize($config = array()) {
-
-        if (!is_array($config)) {
-            $config = array();
-        }
+    public function initialize(array $config = array()) {
 
         foreach ($config as $key => $value) {
             $this->{$key} = $value;
@@ -602,37 +594,14 @@ class MY_Email extends CI_Email {
             if (!is_object($this->phpmailer)) {
 
                 // Try to autoload the PHPMailer if there is already a registered autoloader.
-                $phpmailer_class_exists = class_exists('PHPMailer', true);
-
-                // No? Search for autoloader at some fixed places.
-                if (!$phpmailer_class_exists && defined('COMMONPATH')) {
-
-                    $autoloader = COMMONPATH.'third_party/phpmailer/PHPMailerAutoload.php';
-                    @ include_once $autoloader;
-                    $phpmailer_class_exists = class_exists('PHPMailer', true);
-                }
+                $phpmailer_class_exists = class_exists('PHPMailer\\PHPMailer\\PHPMailer', true);
 
                 if (!$phpmailer_class_exists) {
-
-                    $autoloader = APPPATH.'third_party/phpmailer/PHPMailerAutoload.php';
-                    @ include_once $autoloader;
-                    $phpmailer_class_exists = class_exists('PHPMailer', true);
+                    throw new \Exception('The class PHPMailer\\PHPMailer\\PHPMailer can not be found.');
                 }
 
-                if (!$phpmailer_class_exists) {
-                    throw new Exception('The file PHPMailerAutoload.php can not be found.');
-                }
-
-                $this->phpmailer = new PHPMailer();
-                PHPMailer::$validator = 'valid_email';
-
-                // The property PluginDir seems to be useless, setting it just in case.
-                if (property_exists($this->phpmailer, 'PluginDir')) {
-
-                    $phpmailer_reflection = new ReflectionClass($this->phpmailer);
-                    $this->phpmailer->PluginDir = dirname($phpmailer_reflection->getFileName()).DIRECTORY_SEPARATOR;
-                    unset($phpmailer_reflection);
-                }
+                $this->phpmailer = new \PHPMailer\PHPMailer\PHPMailer();
+                \PHPMailer\PHPMailer\PHPMailer::$validator = 'valid_email';
             }
         }
 
@@ -930,7 +899,13 @@ class MY_Email extends CI_Email {
         $this->properties['newline'] = $newline;
 
         if ($this->mailer_engine == 'phpmailer') {
-            $this->phpmailer->LE = $newline;
+
+            if (property_exists('\\PHPMailer\\PHPMailer\\PHPMailer', 'LE')) {
+
+                $reflection = new \ReflectionProperty('\\PHPMailer\\PHPMailer\\PHPMailer', 'LE');
+                $reflection->setAccessible(true);
+                $reflection->setValue(null, $newline);
+            }
         }
 
         return $this;

@@ -1,15 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed.');
-/*
- *  Para poder enviar archivos con adjuntos en el WHM en MultiPHP Editor habilitar
- *  - allow_url_fopen
- *  - allow_url_include
- */
+
 $config['useragent']        = 'PHPMailer';              // Mail engine switcher: 'CodeIgniter' or 'PHPMailer'
-$config['protocol']         = 'smtp';                   // 'mail', 'sendmail', or 'smtp'
+$config['protocol']         = 'mail';                   // 'mail', 'sendmail', or 'smtp'
 $config['mailpath']         = '/usr/sbin/sendmail';
 $config['smtp_host']        = 'mail.hostdeprueba.com.ar';
 $config['smtp_auth']        = TRUE;                     // Whether to use SMTP authentication, boolean TRUE/FALSE. If this option is omited or if it is NULL, then SMTP authentication is used when both $config['smtp_user'] and $config['smtp_pass'] are non-empty strings.
-$config['smtp_user']        = 'noreply@hostdeprueba.com.ar';
+$config['smtp_user']        = 'urbeas@hostdeprueba.com.ar';
 $config['smtp_pass']        = 'Password1234';
 $config['smtp_port']        = 465;
 $config['smtp_timeout']     = 30;                       // (in seconds)
