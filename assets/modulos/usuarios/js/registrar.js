@@ -15,6 +15,12 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
     $("#lon").val(place.geometry.location.lng());
     $("#actualizar_mapa").click();
 
+    place.address_components.forEach(function(data) {
+        if(data.types[0] == 'country' && data.types[1] == 'political') {
+            $("#pais_nombre_largo").val(data.long_name);
+            $("#pais_nombre_corto").val(data.short_name);
+        }
+    });
 });
 
 $("#actualizar_mapa").click(function () {
@@ -69,6 +75,10 @@ $("#registrarse").click(function () {
         'email': $("#email").val(),
         'place_id': $("#place_id").val(),
         'password': $("#password").val(),
+        'lat': $("#lat").val(),
+        'lon': $("#lon").val(),
+        'pais_nombre_largo': $("#pais_nombre_largo").val(),
+        'pais_nombre_corto': $("#pais_nombre_corto").val(),
         'g-recaptcha-response': grecaptcha.getResponse()
     };
     $.ajax({
@@ -90,6 +100,10 @@ $("#registrarse").click(function () {
                 toastr[$context]($message, '', {
                     positionClass: $position
                 });
+                if("widget" in resultado) {
+                    $("#widget").html(resultado['widget']);
+                    $("#script").html(resultado['script']);
+                }
             } else if (resultado['status'] == 'ok') {
                 $context = 'success';
                 $message = resultado['data'];
@@ -113,7 +127,6 @@ $("#registrarse").click(function () {
                 positionClass: $position
             });
             
-            grecaptcha.reset();
             $("#registrarse_loading").hide();
             $("#registrarse").show();
         }

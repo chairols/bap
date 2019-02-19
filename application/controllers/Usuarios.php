@@ -44,8 +44,8 @@ class Usuarios extends CI_Controller {
                     'ultimo_acceso' => date("Y-m-d H:i:s")
                 );
                 $this->usuarios_model->update($datos, $usuario['idusuario']);
-                
-                if(!empty($this->input->post('remember'))) {
+
+                if (!empty($this->input->post('remember'))) {
                     setcookie("login_usuario", $this->input->post('usuario'), time() + (10 * 365 * 24 * 60 * 60));
                     setcookie("login_password", $this->input->post('password'), time() + (10 * 365 * 24 * 60 * 60));
                 } else {
@@ -56,9 +56,9 @@ class Usuarios extends CI_Controller {
                 redirect('/dashboard/', 'refresh');
             }
         }
-        
+
         $data['post'] = $this->input->post();
-        
+
         $data['title'] = "Login de Usuarios";
         $session = $this->session->all_userdata();
         if (!empty($session['SID'])) {
@@ -74,8 +74,8 @@ class Usuarios extends CI_Controller {
     }
 
     public function registrar() {
-        
-                
+
+
         $recaptcha = $this->input->post('g-recaptcha-response');
         if (!empty($recaptcha)) {
             $response = $this->recaptcha->verifyResponse($recaptcha);
@@ -87,13 +87,13 @@ class Usuarios extends CI_Controller {
             'widget' => $this->recaptcha->getWidget(),
             'script' => $this->recaptcha->getScriptTag(),
         );
-        
+
         $where = array(
             'variable' => 'google_maps_api_key'
         );
         $variable = $this->variables_model->get_where($where);
         $data['google_maps_api_key'] = $variable['valor'];
-        
+
         $this->load->view('usuarios/registrar', $data);
     }
 
@@ -115,22 +115,42 @@ class Usuarios extends CI_Controller {
                 echo json_encode($json);
             } else {
                 /*
+                 * Compruebo si existe el usuario
+                 */
+
+                $where = array(
+                    'usuario' => $this->input->post('usuario')
+                );
+                $usuario = $this->usuarios_model->get_where($where);
+                if ($usuario) {  // Si el usuario ya existe
+                    $json = array(
+                        'status' => 'error',
+                        'data' => 'El Usuario ' . $this->input->post('usuario') . ' ya se encuentra registrado'
+                    );
+                    echo json_encode($json);
+                } else {  // Si el usuario no existe
+                    $where = array(
+                        'place_id' => $this->input->post('place_id')
+                    );
+                    $comunidad = $this->comunidades_model->get_where($where);
+
+                    if ($comunidad) { // Si existe la comunidad
+                    } else {  // Si no existe la comunidad
+                        $set = array(
+                            'place_id' => $this->input->post('place_id')
+                        );
+                    }
+                }
+
+                /*
                  *  Comprobar si existe 
                  *  
                  *  Si existe - Se solicita al administrador unirse
                  * 
                  *  Si no existe la crea
                  */
-                $where = array(
-                    'place_id' => $this->input->post('place_id')
-                );
-                $comunidad = $this->comunidades_model->get_where($where);
-                
-                if($comunidad) { // Si existe la comunidad
-                    
-                } else {  // Si no existe la comunidad
-                    
-                }
+
+
                 $json = array(
                     'status' => 'ok',
                     'data' => 'CORRECTO'
@@ -140,6 +160,8 @@ class Usuarios extends CI_Controller {
         } else {
             $json = array(
                 'status' => 'error',
+                'widget' => $this->recaptcha->getWidget(),
+                'script' => $this->recaptcha->getScriptTag(),
                 'data' => 'Debe verificar Captcha'
             );
             echo json_encode($json);

@@ -43,7 +43,7 @@ class Paises extends CI_Controller {
         $config['first_link'] = '<i class="fa fa-angle-double-left"></i>';
         $config['first_tag_open'] = '<li class="page-item">';
         $config['first_tag_close'] = '</li>';
-        $config['last_link'] = '<i class="page-item zmdi zmdi-chevron-right"></i>';
+        $config['last_link'] = '<i class="page-item fa fa-angle-double-right"></i>';
         $config['last_tag_open'] = '<li class="page-item">';
         $config['last_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li class="page-item">';

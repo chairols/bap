@@ -54,7 +54,7 @@
                                 <form class="form-auth-small" method="POST">
                                     <div class="form-group">
                                         <label for="signin-email" class="control-label sr-only">Usuario</label>
-                                        <input type="text" class="form-control" id="signin-email" name="usuario" value="<?=(isset($_COOKIE['login_usuario']))?$_COOKIE['login_usuario']:""?>" placeholder="Usuario" autofocus="">
+                                        <input type="text" maxlength="255" class="form-control" id="signin-email" name="usuario" value="<?=(isset($_COOKIE['login_usuario']))?$_COOKIE['login_usuario']:""?>" placeholder="Usuario" autofocus="">
                                     </div>
                                     <div class="form-group">
                                         <label for="signin-password" class="control-label sr-only">Password</label>

@@ -45,6 +45,13 @@ class Usuarios_model extends CI_Model {
         $this->db->update('usuarios', $where, array('idusuario' => $idusuario));
     }
 
+    /*
+     *  Usuarios/registrar_ajax
+     */
+    public function get_where($where) {
+        $query = $this->db->get_where('usuarios', $where);
+        return $query->row_array();
+    }
 }
 
 ?>

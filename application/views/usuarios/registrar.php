@@ -69,18 +69,24 @@
                                             <input type="text" id="address" class="form-control" placeholder="Ingrese Dirección">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Ingrese Email">
+                                            <input type="email" maxlength="255" class="form-control" id="email" placeholder="Ingrese Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="password" placeholder="Contraseña">
                                         </div>
                                         <div class="form-group">
-                                            <?php echo $widget; ?>
-                                            <?php echo $script; ?>
+                                            <div id="widget">
+                                                <?php echo $widget; ?>
+                                            </div>
+                                            <div id="script">
+                                                <?php echo $script; ?>
+                                            </div>
                                         </div>
                                         <input type="hidden" id="place_id" value="">
                                         <input type="hidden" id="lat">
                                         <input type="hidden" id="lon">
+                                        <input type="hidden" id="pais_nombre_largo">
+                                        <input type="hidden" id="pais_nombre_corto">
                                         <input type="hidden" id="actualizar_mapa">
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse">Registrarse</button>
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse_loading" style="display: none">
