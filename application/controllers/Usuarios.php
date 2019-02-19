@@ -110,6 +110,8 @@ class Usuarios extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $json = array(
                     'status' => 'error',
+                    'widget' => $this->recaptcha->getWidget(),
+                    'script' => $this->recaptcha->getScriptTag(),
                     'data' => validation_errors()
                 );
                 echo json_encode($json);
