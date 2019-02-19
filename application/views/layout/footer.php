@@ -9,6 +9,7 @@
 <script src="/assets/mp/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 <script src="/assets/mp/html/assets/vendor/summernote/dist/summernote.js"></script>
 <script src="/assets/mp/html/assets/vendor/nestable/jquery.nestable.js"></script>
+<script src="/assets/vendors/select2/js/select2.full.js"></script>
 
 
 <script src="/assets/mp/html/light/assets/bundles/mainscripts.bundle.js"></script>

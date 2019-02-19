@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="/assets/mp/html/assets/vendor/toastr/toastr.min.css" />
         <link rel="stylesheet" href="/assets/mp/html/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
         <link rel="stylesheet" href="/assets/mp/html/assets/vendor/nestable/jquery-nestable.css" />
+        <link rel="stylesheet" href="/assets/vendors/select2/css/select2.css" />
 
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="/assets/mp/html/light/assets/css/main.css">

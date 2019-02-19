@@ -162,8 +162,8 @@
                                                 <img src="/assets/mp/html/assets/images/user-small.png" class="rounded" width="50" alt="">
                                             </div>
                                             <div class="drop-right">
-                                                <h4>Samuel Morriss</h4>
-                                                <p class="user-name">samuelmorris@info.com</p>
+                                                <h4><?=$session['nombre']?> <?=$session['apellido']?></h4>
+                                                <p class="user-name"><?=$session['usuario']?></p>
                                             </div>
                                         </div>
                                         <div class="m-t-10 p-3 drop-list">
