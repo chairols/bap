@@ -42,7 +42,6 @@ function actualizar(idmenu, idperfil) {
         url: '/perfiles/actualizar_accesos/',
         data: datos,
         beforeSend: function () {
-            $("#checkbox-" + idmenu).attr("disabled", "disabled");
             $("#progreso-" + idmenu).show();
         },
         success: function (data) {
@@ -60,7 +59,6 @@ function actualizar(idmenu, idperfil) {
                             allow_dismiss: false
                         });
             }
-            $("#checkbox-" + idmenu).removeAttr("disabled");
         },
         error: function (xhr) { // if error occured
             $.notify('<strong>Ha ocurrido el siguiente error:</strong><br>' + xhr.statusText,

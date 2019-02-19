@@ -29,36 +29,41 @@ class Usuarios extends CI_Controller {
         } else {
             $usuario = $this->usuarios_model->get_usuario($this->input->post('usuario'), sha1($this->input->post('password')));
             if (!empty($usuario)) {
-                $where = array(
-                    'idusuario' => $usuario['idusuario'],
-                    'idcomunidad' => $usuario['idcomunidad_activa']
-                );
-                $perfil = $this->usuarios_model->get_perfil($where);
+                if ($usuario['estado'] == 'A') {  // Si el usuario está activo
+                    $where = array(
+                        'idusuario' => $usuario['idusuario'],
+                        'idcomunidad' => $usuario['idcomunidad_activa']
+                    );
+                    $perfil = $this->usuarios_model->get_perfil($where);
 
-                $datos = array(
-                    'SID' => $usuario['idusuario'],
-                    'usuario' => $usuario['usuario'],
-                    'nombre' => $usuario['nombre'],
-                    'apellido' => $usuario['apellido'],
-                    'correo' => $usuario['email'],
-                    'perfil' => $perfil['idperfil']
-                );
-                $this->session->set_userdata($datos);
+                    $datos = array(
+                        'SID' => $usuario['idusuario'],
+                        'usuario' => $usuario['usuario'],
+                        'nombre' => $usuario['nombre'],
+                        'apellido' => $usuario['apellido'],
+                        'correo' => $usuario['email'],
+                        'perfil' => $perfil['idperfil'],
+                        'comunidad_activa' => $usuario['idcomunidad_activa']
+                    );
+                    $this->session->set_userdata($datos);
 
-                $datos = array(
-                    'ultimo_acceso' => date("Y-m-d H:i:s")
-                );
-                $this->usuarios_model->update($datos, $usuario['idusuario']);
+                    $datos = array(
+                        'ultimo_acceso' => date("Y-m-d H:i:s")
+                    );
+                    $this->usuarios_model->update($datos, $usuario['idusuario']);
 
-                if (!empty($this->input->post('remember'))) {
-                    setcookie("login_usuario", $this->input->post('usuario'), time() + (10 * 365 * 24 * 60 * 60));
-                    setcookie("login_password", $this->input->post('password'), time() + (10 * 365 * 24 * 60 * 60));
-                } else {
-                    setcookie("login_usuario", "", time() - 100);
-                    setcookie("login_password", "", time() - 100);
+                    if (!empty($this->input->post('remember'))) {
+                        setcookie("login_usuario", $this->input->post('usuario'), time() + (10 * 365 * 24 * 60 * 60));
+                        setcookie("login_password", $this->input->post('password'), time() + (10 * 365 * 24 * 60 * 60));
+                    } else {
+                        setcookie("login_usuario", "", time() - 100);
+                        setcookie("login_password", "", time() - 100);
+                    }
+
+                    redirect('/dashboard/', 'refresh');
+                } else if($usuario['estado'] == 'P') {  // Si falta la confirmación de Email
+                    
                 }
-
-                redirect('/dashboard/', 'refresh');
             }
         }
 
@@ -150,7 +155,7 @@ class Usuarios extends CI_Controller {
                             'fecha_creacion' => date("Y-m-d H:i:s")
                         );
                         $idcomunidad = $this->comunidades_model->set($set);
-                        
+
                         // Creo el usuario
                         $set = array(
                             'usuario' => $this->input->post('email'),
@@ -159,7 +164,7 @@ class Usuarios extends CI_Controller {
                             'fecha_creacion' => date("Y-m-d H:i:s")
                         );
                         $idusuario = $this->usuarios_model->set($set);
-                        
+
                         // Actualizo datos de usuario a la comunidad
                         $datos = array(
                             'creado_por' => $idusuario,
@@ -169,14 +174,14 @@ class Usuarios extends CI_Controller {
                             'idcomunidad' => $idcomunidad
                         );
                         $this->comunidades_model->update($datos, $where);
-                        
+
                         // Actualizo comunidad activa y creador
                         $datos = array(
                             'idcomunidad_activa' => $idcomunidad,
                             'idcreador' => $idusuario
                         );
                         $this->usuarios_model->update($datos, $idusuario);
-                        
+
                         // Agrego usuario y perfil a la nueva comunidad
                         $datos = array(
                             'idusuario' => $idusuario,

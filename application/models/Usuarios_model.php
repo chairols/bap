@@ -18,7 +18,8 @@ class Usuarios_model extends CI_Model {
                                         nombre,
                                         apellido,
                                         email,
-                                        idcomunidad_activa
+                                        idcomunidad_activa,
+                                        estado
                                     FROM
                                         usuarios
                                     WHERE
