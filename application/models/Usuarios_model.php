@@ -17,7 +17,8 @@ class Usuarios_model extends CI_Model {
                                         usuario,
                                         nombre,
                                         apellido,
-                                        email
+                                        email,
+                                        idcomunidad_activa
                                     FROM
                                         usuarios
                                     WHERE
@@ -29,11 +30,8 @@ class Usuarios_model extends CI_Model {
     /*
      *  Usuarios/login
      */
-    public function get_perfil($idusuario) {
-        $where = array(
-            'idusuario' => $idusuario
-        );
-        $query = $this->db->get_where('usuarios_perfiles', $where);
+    public function get_perfil($where) {
+        $query = $this->db->get_where('usuarios_comunidades', $where);
         
         return $query->row_array();
     }
@@ -51,6 +49,22 @@ class Usuarios_model extends CI_Model {
     public function get_where($where) {
         $query = $this->db->get_where('usuarios', $where);
         return $query->row_array();
+    }
+    
+    /*
+     *  Usuarios/registrar_ajax
+     */
+    public function set($datos) {
+        $this->db->insert('usuarios', $datos);
+        return $this->db->insert_id();
+    }
+    
+    /*
+     *  Usuarios/registrar_ajax
+     */
+    public function set_comunidad($datos) {
+        $this->db->insert('usuarios_comunidades', $datos);
+        return $this->db->insert_id();
     }
 }
 

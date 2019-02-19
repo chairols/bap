@@ -17,6 +17,8 @@ class Comunidades_model extends CI_Model {
     
     /*
      *  Comunidades/agregar_ajax
+     * 
+     *  Usuarios/registrar_ajax
      */
     public function set($datos) {
         $this->db->insert('comunidades', $datos);
@@ -50,6 +52,13 @@ class Comunidades_model extends CI_Model {
                                         comunidad
                                     LIMIT $pagina, $cantidad");
         return $query->result_array();
+    }
+    
+    /*
+     *  Usuarios/registrar_ajax
+     */
+    public function update($datos, $where) {
+        $this->db->update('comunidades', $datos, $where);
     }
 }
 ?>

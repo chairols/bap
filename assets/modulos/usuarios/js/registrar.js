@@ -13,6 +13,7 @@ google.maps.event.addListener(autocomplete, 'place_changed', function () {
 
     $("#lat").val(place.geometry.location.lat());
     $("#lon").val(place.geometry.location.lng());
+    $("#direccion").val(place.formatted_address);
     $("#actualizar_mapa").click();
 
     place.address_components.forEach(function(data) {
@@ -79,6 +80,7 @@ $("#registrarse").click(function () {
         'lon': $("#lon").val(),
         'pais_nombre_largo': $("#pais_nombre_largo").val(),
         'pais_nombre_corto': $("#pais_nombre_corto").val(),
+        'direccion': $("#direccion").val(),
         'g-recaptcha-response': grecaptcha.getResponse()
     };
     $.ajax({

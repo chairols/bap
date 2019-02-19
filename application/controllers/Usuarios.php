@@ -13,7 +13,8 @@ class Usuarios extends CI_Controller {
         ));
         $this->load->model(array(
             'usuarios_model',
-            'variables_model'
+            'variables_model',
+            'comunidades_model'
         ));
     }
 
@@ -28,7 +29,11 @@ class Usuarios extends CI_Controller {
         } else {
             $usuario = $this->usuarios_model->get_usuario($this->input->post('usuario'), sha1($this->input->post('password')));
             if (!empty($usuario)) {
-                $perfil = $this->usuarios_model->get_perfil($usuario['idusuario']);
+                $where = array(
+                    'idusuario' => $usuario['idusuario'],
+                    'idcomunidad' => $usuario['idcomunidad_activa']
+                );
+                $perfil = $this->usuarios_model->get_perfil($where);
 
                 $datos = array(
                     'SID' => $usuario['idusuario'],
@@ -116,10 +121,6 @@ class Usuarios extends CI_Controller {
                 );
                 echo json_encode($json);
             } else {
-                /*
-                 * Compruebo si existe el usuario
-                 */
-
                 $where = array(
                     'usuario' => $this->input->post('usuario')
                 );
@@ -138,9 +139,52 @@ class Usuarios extends CI_Controller {
 
                     if ($comunidad) { // Si existe la comunidad
                     } else {  // Si no existe la comunidad
+                        // Creo la comunidad
                         $set = array(
-                            'place_id' => $this->input->post('place_id')
+                            'place_id' => $this->input->post('place_id'),
+                            'latitud' => $this->input->post('lat'),
+                            'longitud' => $this->input->post('lon'),
+                            'pais' => $this->input->post('pais_nombre_largo'),
+                            'abreviatura_pais' => $this->input->post('pais_nombre_corto'),
+                            'direccion' => $this->input->post('direccion'),
+                            'fecha_creacion' => date("Y-m-d H:i:s")
                         );
+                        $idcomunidad = $this->comunidades_model->set($set);
+                        
+                        // Creo el usuario
+                        $set = array(
+                            'usuario' => $this->input->post('email'),
+                            'password' => sha1($this->input->post('password')),
+                            'idcomunidad_activa' => $idcomunidad,
+                            'fecha_creacion' => date("Y-m-d H:i:s")
+                        );
+                        $idusuario = $this->usuarios_model->set($set);
+                        
+                        // Actualizo datos de usuario a la comunidad
+                        $datos = array(
+                            'creado_por' => $idusuario,
+                            'modificado_por' => $idusuario
+                        );
+                        $where = array(
+                            'idcomunidad' => $idcomunidad
+                        );
+                        $this->comunidades_model->update($datos, $where);
+                        
+                        // Actualizo comunidad activa y creador
+                        $datos = array(
+                            'idcomunidad_activa' => $idcomunidad,
+                            'idcreador' => $idusuario
+                        );
+                        $this->usuarios_model->update($datos, $idusuario);
+                        
+                        // Agrego usuario y perfil a la nueva comunidad
+                        $datos = array(
+                            'idusuario' => $idusuario,
+                            'idperfil' => 2,
+                            'idcomunidad' => $idcomunidad,
+                            'administrador_comunidad' => 'S'
+                        );
+                        $this->usuarios_model->set_comunidad($datos);
                     }
                 }
 

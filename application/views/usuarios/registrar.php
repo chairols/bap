@@ -87,6 +87,7 @@
                                         <input type="hidden" id="lon">
                                         <input type="hidden" id="pais_nombre_largo">
                                         <input type="hidden" id="pais_nombre_corto">
+                                        <input type="hidden" id="direccion">
                                         <input type="hidden" id="actualizar_mapa">
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse">Registrarse</button>
                                         <button type="button" class="btn btn-primary btn-lg btn-block" id="registrarse_loading" style="display: none">
