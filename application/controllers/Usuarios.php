@@ -219,6 +219,11 @@ class Usuarios extends CI_Controller {
         }
     }
 
+    private function enviar_correo_confirmacion_mail($idusuario) {
+        
+    }
+    
+    
 }
 
 ?>
