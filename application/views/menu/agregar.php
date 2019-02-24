@@ -52,7 +52,7 @@
                         <div class="row clearfix m-t-15">
                             <div class="col-lg-12">
                                 <p><b>Padre</b></p>
-                                <select class="form-control" id="padre" data-live-search="true">
+                                <select class="form-control select2" id="padre" data-live-search="true">
                                     <option value="0" selected>--- No tiene ---</option>
                                     <?php foreach ($padres as $padre) { ?>
                                         <option value="<?= $padre['idmenu'] ?>"><?= $padre['titulo'] ?></option>
